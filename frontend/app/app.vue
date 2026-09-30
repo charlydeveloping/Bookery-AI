@@ -11,7 +11,7 @@ const error = ref('')
 const searched = ref(false)
 const elapsed = ref<number | null>(null)
 const answer = ref('')
-const explanationMode = ref<'llm' | 'basic' | 'reference'>('basic')
+const explanationMode = ref<'llm' | 'basic' | 'reference' | 'catalog'>('basic')
 
 onMounted(async () => {
   try { options.value = await $fetch(`${config.public.apiBase}/api/options`) } catch { /* Search still works without filters. */ }
@@ -24,7 +24,7 @@ async function search() {
   searched.value = false
   try {
     const path = method.value === 'semantic' ? '/api/recommend' : '/api/search/bm25'
-    const response = await $fetch<{ recommendations: Book[]; response_time_ms: number; answer: string; explanation_mode: 'llm' | 'basic' | 'reference' }>(`${config.public.apiBase}${path}`, {
+    const response = await $fetch<{ recommendations: Book[]; response_time_ms: number; answer: string; explanation_mode: 'llm' | 'basic' | 'reference' | 'catalog' }>(`${config.public.apiBase}${path}`, {
       method: 'POST', body: { query: query.value, language: 'es', genre: genre.value || null, limit: 5 }
     })
     books.value = response.recommendations
@@ -55,7 +55,7 @@ async function search() {
       </form>
       <p v-if="error" class="error" role="alert">{{ error }}</p>
     </section>
-    <section v-if="searched" class="results"><div class="section-title"><h2>Libros para ti</h2><span>{{ books.length }} resultados · {{ elapsed }} ms</span></div><div class="answer" role="status"><span class="answer-label">BOOKERY AI · {{ explanationMode === 'llm' ? 'EXPLICACIONES CON IA' : explanationMode === 'reference' ? 'SIMILITUD POR TEMAS DEL CATÁLOGO' : 'MODO BÁSICO' }}</span><p>{{ answer }}</p></div><div class="grid"><article v-for="(book, index) in books" :key="book.id" class="card"><div class="card-top"><span class="number">0{{ index + 1 }}</span><span class="genre">{{ book.genres[0] }}</span></div><h3>{{ book.title }}</h3><p class="author">{{ book.author }}</p><p class="description">{{ book.description }}</p><div class="reason"><span>POR QUÉ ESTE LIBRO</span><p>{{ book.reason }}</p></div><a v-if="book.source_url" :href="book.source_url" target="_blank" rel="noopener noreferrer">Ver fuente ↗</a></article></div></section>
+    <section v-if="searched" class="results"><div class="section-title"><h2>{{ explanationMode === 'catalog' ? 'Consulta del catálogo' : 'Libros para ti' }}</h2><span>{{ books.length }} resultados · {{ elapsed }} ms</span></div><div class="answer" role="status"><span class="answer-label">BOOKERY AI · {{ explanationMode === 'llm' ? 'EXPLICACIONES CON IA' : explanationMode === 'reference' ? 'SIMILITUD POR CATEGORÍAS DEL CATÁLOGO' : explanationMode === 'catalog' ? 'DATOS DEL CATÁLOGO ACADÉMICO' : 'MODO BÁSICO' }}</span><p>{{ answer }}</p></div><div class="grid"><article v-for="(book, index) in books" :key="book.id" class="card"><div class="card-top"><span class="number">0{{ index + 1 }}</span><span class="genre">{{ book.genres[0] }}</span></div><h3>{{ book.title }}</h3><p class="author">{{ book.author }}</p><p class="description">{{ book.description }}</p><div class="reason"><span>{{ explanationMode === 'catalog' ? 'FICHA DEL CATÁLOGO' : 'POR QUÉ ESTE LIBRO' }}</span><p>{{ book.reason }}</p></div><a v-if="book.source_url" :href="book.source_url" target="_blank" rel="noopener noreferrer">Ver fuente ↗</a></article></div></section>
     <section class="about"><div><p class="eyebrow">EL MÉTODO</p><h2>¿Cómo funciona?</h2></div><p>La búsqueda semántica recupera libros del catálogo. Si configuras un modelo de lenguaje, este explica por qué encajan los libros encontrados. BM25 permite comparar los resultados mediante coincidencias de palabras. Los filtros de idioma y género se aplican antes de mostrar resultados.</p></section>
     <footer>Bookery AI · Catálogo académico de demostración en español; no representa el inventario actual de Todo Libros. Los resultados dependen de las descripciones disponibles.</footer>
   </main>

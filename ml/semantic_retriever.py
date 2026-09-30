@@ -50,7 +50,7 @@ class SemanticRetriever:
         vector = np.asarray(self.model.encode([expand_reference_query(query, self.books)], normalize_embeddings=True)[0])
         scores = np.einsum("ij,j->i", self.vectors, vector)
         excluded = referenced_book_ids(query, self.books)
-        shared_genres = reference_genres(self.books, excluded) if not genre else set()
+        shared_genres = reference_genres(self.books, excluded)
         ranked = [(book, float(scores[index])) for index, book in enumerate(self.books)
                   if book["id"] not in excluded and matches(book, language, genre, author)
                   and (not shared_genres or any(item.casefold() in shared_genres for item in book["genres"]))]

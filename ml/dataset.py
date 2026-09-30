@@ -94,3 +94,91 @@ def reference_context(query, books):
     genres = sorted({genre for book in reference_books for genre in book["genres"]})
     return {"label": author or reference_books[0]["title"], "book_ids": referenced,
             "topics": topics or genres, "genres": genres}
+
+
+def availability_query(query):
+    """Detect direct questions asking whether a specific catalog item is available."""
+    query_words = f" {folded_words(query)} "
+    if similarity_reference_query(query):
+        return False
+    return bool(re.search(r"\b(?:tienen|tienes|hay|venden|disponible|cuentan con)\b", query_words)) and bool(
+        re.search(r"\b(?:el|la|este|esta)\s+(?:libro|novela|titulo)\b", query_words)
+        or find_title_phrase(query))
+
+
+def similarity_reference_query(query):
+    """Detect a request for books similar to a named book or author."""
+    query_words = f" {folded_words(query)} "
+    markers = (" parecido a ", " parecida a ", " parecidos a ", " parecidas a ",
+               " similar a ", " similares a ", " semejante a ", " semejantes a ")
+    return any(marker in query_words for marker in markers)
+
+
+def descriptive_similarity_query(query):
+    """Allow comparisons to a genre or theme instead of assuming a named book."""
+    reference = extract_similarity_reference(query)
+    return bool(reference and re.match(r"^(?:una?\s+(?:novela|libro|historia|cuento)\s+de|historias\s+de)\b",
+                                       folded_words(reference)))
+
+
+def find_title_in_query(query, books):
+    """Find the longest exact catalog title or alias mentioned in a query."""
+    query_words = f" {folded_words(query)} "
+    found = []
+    for book in books:
+        for title in [book["title"], *book.get("reference_aliases", [])]:
+            folded_title = folded_words(title)
+            if folded_title and f" {folded_title} " in query_words:
+                found.append((len(folded_title), book))
+    return max(found, key=lambda item: item[0])[1] if found else None
+
+
+def find_author_in_query(query, books):
+    query_words = f" {folded_words(query)} "
+    authors = {book["author"] for book in books}
+    found = [author for author in authors if f" {folded_words(author)} " in query_words]
+    return max(found, key=len) if found else None
+
+
+def find_title_phrase(query):
+    """Extract a named title from common Spanish catalog questions."""
+    normalized = normalize_text(query).strip(" \t\r\n?¿¡.,;:")
+    patterns = (
+        r"(?:tienen|tienes|hay|venden|esta disponible|conoces)\s+(?:el|la|este|esta)\s+(?:libro|novela|titulo)\s+(.+)$",
+        r"(?:de que trata|quien escribio|quien es el autor de|informacion sobre|resumen de|sinopsis de|autor de)\s+(?:(?:el|la)\s+(?:libro|novela)\s+)?(.+)$",
+    )
+    for pattern in patterns:
+        match = re.search(pattern, folded_words(normalized), flags=re.IGNORECASE)
+        if match:
+            return match.group(1).strip()
+    return None
+
+
+def direct_book_query(query, books):
+    """Return a known title or a named title whose details the user asks about."""
+    if similarity_reference_query(query):
+        return None
+    query_words = f" {folded_words(query)} "
+    asks_about_book = availability_query(query) or bool(re.search(
+        r"\b(?:de que trata|quien escribio|quien es el autor de|informacion sobre|resumen de|sinopsis de|autor de)\b", query_words))
+    book = find_title_in_query(query, books)
+    if book and (asks_about_book or folded_words(query) == folded_words(book["title"])
+                 or bool(re.search(r"\b(?:tienen|tienes|hay|venden|disponible)\b", query_words))):
+        return {"book": book, "requested_title": book["title"]}
+    requested_title = find_title_phrase(query)
+    if requested_title and asks_about_book:
+        return {"book": None, "requested_title": requested_title}
+    return None
+
+
+def extract_similarity_reference(query):
+    """Extract text after a similarity phrase, excluding the question punctuation."""
+    normalized = normalize_text(query)
+    match = re.search(r"\b(?:parecid[oa]s?|similar(?:es)?|semejant(?:e|es))\s+a\s+(.+?)[?.!,;]*$",
+                      normalized, flags=re.IGNORECASE)
+    if not match:
+        return None
+    reference = match.group(1).strip(" \t\r\n?¿¡.,;:")
+    reference = re.sub(r"^(?:los\s+libros\s+de|las\s+obras\s+de|el\s+libro|la\s+novela|los\s+libros)\s+",
+                       "", reference, flags=re.IGNORECASE)
+    return reference or None

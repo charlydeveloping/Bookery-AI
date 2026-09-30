@@ -34,6 +34,68 @@ def test_api_end_to_end_contract():
         assert client.post("/api/search/bm25", json={"query": "cámaras"}).json()["recommendations"][0]["id"] == "a"
 
 
+def test_availability_query_answers_from_catalog_instead_of_recommending_unrelated_books():
+    books = clean(RAW)
+    with TestClient(create_app(books, FakeSemantic(books))) as client:
+        payload = client.post("/api/recommend", json={"query": "¿Tienen el libro Pueblo enfermo?", "language": "es"}).json()
+        assert payload["recommendations"] == []
+        assert payload["explanation_mode"] == "catalog"
+        assert "No encontré «pueblo enfermo»" in payload["answer"]
+
+        known_title = books[0]["title"]
+        payload = client.post("/api/recommend", json={"query": f"¿Tienen el libro {known_title}?", "language": "es"}).json()
+        assert [item["id"] for item in payload["recommendations"]] == [books[0]["id"]]
+        assert "está en el catálogo académico" in payload["answer"]
+
+
+def test_direct_book_questions_and_author_listing_use_catalog_evidence():
+    books = clean(RAW)
+
+    class UnexpectedExplainer:
+        def explain(self, _query, _books):
+            raise AssertionError("Catalog questions must not be sent to the LLM")
+
+    with TestClient(create_app(books, FakeSemantic(books), UnexpectedExplainer())) as client:
+        known = client.post("/api/recommend", json={"query": "¿De qué trata Ciudad futura?"}).json()
+        assert [item["id"] for item in known["recommendations"]] == ["a"]
+        assert books[0]["description"] in known["answer"]
+        missing = client.post("/api/recommend", json={"query": "¿Quién escribió Pueblo enfermo?"}).json()
+        assert missing["recommendations"] == []
+        assert "No encontré «pueblo enfermo»" in missing["answer"]
+        short = client.post("/api/recommend", json={"query": "¿Tienen Ciudad futura?"}).json()
+        assert [item["id"] for item in short["recommendations"]] == ["a"]
+        author = client.post("/api/recommend", json={"query": "¿Qué libros de A. Escritora tienes?"}).json()
+        assert [item["id"] for item in author["recommendations"]] == ["a"]
+        assert author["explanation_mode"] == "catalog"
+
+
+def test_generic_book_request_still_uses_retriever():
+    books = clean(RAW)
+    with TestClient(create_app(books, FakeSemantic(books))) as client:
+        payload = client.post("/api/recommend", json={"query": "¿Tienes algún libro de ciencia ficción?"}).json()
+        assert payload["recommendations"]
+        assert payload["explanation_mode"] == "basic"
+        descriptive = client.post("/api/recommend", json={"query": "Algo similar a una novela de ciencia ficción"}).json()
+        assert descriptive["recommendations"]
+
+
+def test_unknown_similarity_reference_does_not_return_accidental_matches_or_call_llm():
+    books = clean(RAW)
+
+    class UnexpectedExplainer:
+        def explain(self, _query, _books):
+            raise AssertionError("Unknown reference queries must not be sent to the LLM")
+
+    with TestClient(create_app(books, FakeSemantic(books), UnexpectedExplainer())) as client:
+        payload = client.post("/api/recommend", json={
+            "query": "tienes algun libro similar a pueblo enfermo?", "language": "es"
+        }).json()
+        assert payload["recommendations"] == []
+        assert payload["explanation_mode"] == "catalog"
+        assert "no puedo determinar" in payload["answer"]
+        assert "pueblo enfermo" in payload["answer"]
+
+
 def test_llm_explains_only_retrieved_books():
     books = clean(RAW)
 

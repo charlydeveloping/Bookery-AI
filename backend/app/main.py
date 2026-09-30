@@ -8,7 +8,8 @@ from pydantic import BaseModel, Field, field_validator
 from dotenv import load_dotenv
 
 from ml.bm25_retriever import BM25Retriever
-from ml.dataset import load_books, reference_context
+from ml.dataset import (descriptive_similarity_query, direct_book_query, extract_similarity_reference, find_author_in_query,
+                        load_books, matches, reference_context, similarity_reference_query)
 from ml.semantic_retriever import SemanticRetriever
 from backend.app.llm import LLMExplainer
 
@@ -59,6 +60,49 @@ def create_app(books=None, semantic=None, explainer=None):
 
     def run(request, method):
         start = time.perf_counter()
+        direct = direct_book_query(request.query, app.state.books)
+        if direct:
+            book = direct["book"]
+            recommendations = []
+            if book and matches(book, request.language, request.genre, request.author):
+                recommendations = [{"id": book["id"], "title": book["title"], "author": book["author"],
+                    "genres": book["genres"], "language": book["language"], "description": book["description"],
+                    "score": 1.0, "source_url": book.get("source_url"),
+                    "reason": "Ficha registrada en el catálogo académico."}]
+                answer = (f"«{book['title']}», de {book['author']}, está en el catálogo académico. "
+                          f"Según su ficha: {book['description']}")
+            elif book:
+                answer = f"«{book['title']}» está en el catálogo, pero no cumple los filtros seleccionados."
+            else:
+                answer = (f"No encontré «{direct['requested_title']}» en el catálogo académico. "
+                          "No puedo confirmar su contenido ni la disponibilidad en la librería.")
+            return {"query": request.query, "method": method, "recommendations": recommendations,
+                    "answer": answer, "explanation_mode": "catalog",
+                    "response_time_ms": round((time.perf_counter() - start) * 1000, 2)}
+        if similarity_reference_query(request.query):
+            reference = reference_context(request.query, app.state.books)
+            if reference is None and not descriptive_similarity_query(request.query):
+                named_reference = extract_similarity_reference(request.query) or "esa obra"
+                return {"query": request.query, "method": method, "recommendations": [],
+                        "answer": (f"No tengo información sobre «{named_reference}» en la base de conocimiento, "
+                                   "así que no puedo determinar qué libros del catálogo son similares. "
+                                   "Prueba con un título conocido o describe los temas que buscas."),
+                        "explanation_mode": "catalog",
+                        "response_time_ms": round((time.perf_counter() - start) * 1000, 2)}
+        author = find_author_in_query(request.query, app.state.books)
+        if author and not similarity_reference_query(request.query) and any(
+                phrase in f" {request.query.casefold()} " for phrase in ("libros de", "obras de", "escritos por")):
+            author_books = [book for book in app.state.books if book["author"] == author
+                            and matches(book, request.language, request.genre, request.author)][:request.limit]
+            recommendations = [{"id": book["id"], "title": book["title"], "author": book["author"],
+                "genres": book["genres"], "language": book["language"], "description": book["description"],
+                "score": 1.0, "source_url": book.get("source_url"),
+                "reason": "Obra de este autor registrada en el catálogo académico."} for book in author_books]
+            answer = (f"Encontré {len(recommendations)} libro(s) de {author} en el catálogo académico."
+                      if recommendations else f"No encontré libros de {author} con los filtros seleccionados.")
+            return {"query": request.query, "method": method, "recommendations": recommendations,
+                    "answer": answer, "explanation_mode": "catalog",
+                    "response_time_ms": round((time.perf_counter() - start) * 1000, 2)}
         retriever = app.state.semantic if method == "semantic" else app.state.bm25
         if retriever is None:
             raise HTTPException(status_code=503, detail="Índice semántico no disponible")
@@ -71,7 +115,7 @@ def create_app(books=None, semantic=None, explainer=None):
         for book, score in results:
             shared_topics = sorted(set(book["genres"]) & set(reference["genres"])) if reference else []
             if reference and shared_topics:
-                reason = (f"Comparte los temas {', '.join(shared_topics)} asociados a los libros de "
+                reason = (f"Comparte las categorías {', '.join(shared_topics)} registradas para los libros de "
                           f"{reference['label']}.")
             else:
                 reason = (explanations or {}).get(book["id"]) or \
@@ -82,7 +126,8 @@ def create_app(books=None, semantic=None, explainer=None):
                 "reason": reason})
         if reference:
             answer = (f"Tomé como referencia los libros de {reference['label']} y busqué obras de otros autores "
-                      f"que comparten estos temas: {', '.join(reference['topics'][:5])}.")
+                      f"que comparten categorías del catálogo: {', '.join(reference['genres'][:5])}."
+                      if recommendations else f"No encontré alternativas a {reference['label']} que cumplan los filtros en este catálogo.")
             explanation_mode = "reference"
         else:
             answer = (f"Encontré {len(recommendations)} libro(s) del catálogo que podrían interesarte."

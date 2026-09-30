@@ -19,7 +19,7 @@ class BM25Retriever:
             raise ValueError("Query cannot be empty")
         terms = set(tokens(expand_reference_query(query, self.books)))
         excluded = referenced_book_ids(query, self.books)
-        shared_genres = reference_genres(self.books, excluded) if not genre else set()
+        shared_genres = reference_genres(self.books, excluded)
         ranked = []
         for book, doc, length in zip(self.books, self.documents, self.lengths):
             if book["id"] in excluded or not matches(book, language, genre, author):
