@@ -132,7 +132,7 @@ El catálogo de demostración no es el inventario de Todo Libros y contiene 215 
 ## Entregables finales
 
 - [Informe técnico PDF](output/pdf/informe-tecnico-bookery-ai.pdf), con tabla, capturas, pruebas, análisis de errores y referencias.
-- [Presentación PPTX de cinco diapositivas](output/presentation/bookery-ai-presentacion-final-v3.pptx), con notas para una exposición de cinco minutos.
+- [Presentación PPTX de cinco diapositivas](output/presentation/bookery-ai-presentacion-final-v4.pptx), con notas para una exposición de cinco minutos.
 - [Calificaciones humanas](data/evaluation/reviewed_queries.json) y [resultados revisados](results/evaluation_reviewed.csv).
 
 Los scripts `tools/build_report.py` y `tools/build_presentation.mjs` generan los documentos desde el contenido del repositorio. Antes de la demostración, inicie el backend y el frontend con los comandos de instalación anteriores.

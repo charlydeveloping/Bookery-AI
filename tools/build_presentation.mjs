@@ -8,7 +8,7 @@ import { Presentation, PresentationFile } from "@oai/artifact-tool";
 const workspaceDir = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const SKILL_DIR = "/Users/carlos/.codex/plugins/cache/openai-primary-runtime/presentations/26.909.12148/skills/presentations";
 const RUNTIME_PYTHON = "/Users/carlos/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3";
-const FINAL_PPTX = path.join(workspaceDir, "output/presentation/bookery-ai-presentacion-final-v3.pptx");
+const FINAL_PPTX = path.join(workspaceDir, "output/presentation/bookery-ai-presentacion-final-v4.pptx");
 const TMP_DIR = path.join(workspaceDir, ".codex-finalizer");
 const { resolvePresentationFont, finalizePresentation } = await import(
   pathToFileURL(path.join(SKILL_DIR, "container_tools/artifact_tool_utils.mjs")).href,
@@ -53,7 +53,7 @@ function base(number, title, subtitle = "") {
   rect(slide, 78, 455, 8, 95, clay);
   text(slide, "215 libros · 28 categorías\nModelo semántico y línea base BM25", 112, 460, 910, 95, 27, green, true);
   slide.speakerNotes.textFrame.setText(
-    "Tiempo sugerido: 45 s. Problema: una consulta conversacional requiere ordenar libros relevantes. Objetivo: comparar semántica con BM25. Datos del catálogo y arquitectura descritos en README.md.");
+    "Tiempo sugerido: 40 s. Problema: una consulta conversacional requiere ordenar libros relevantes. Objetivo: comparar semántica con BM25. Datos del catálogo y arquitectura descritos en README.md.");
 }
 
 // Slide 2: method and validation.
@@ -68,7 +68,7 @@ function base(number, title, subtitle = "") {
   text(slide, "Validación: 9 consultas · 71 pares consulta-libro · notas humanas de 0 a 3",
     76, 516, 1120, 70, 25, green, true);
   slide.speakerNotes.textFrame.setText(
-    "Tiempo sugerido: 55 s. Modelo: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2, revisión e8f8c211226b894fcb81acc59f3b34ba3efd5f42. No se entrenó en este proyecto. Los candidatos de los dos métodos se mezclaron sin revelar procedencia y se calificaron de 0 a 3. Fuente: README.md y data/evaluation/reviewed_queries.json.");
+    "Tiempo sugerido: 50 s. Modelo: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2, revisión e8f8c211226b894fcb81acc59f3b34ba3efd5f42. No se entrenó en este proyecto. Los candidatos de los dos métodos se mezclaron sin revelar procedencia y se calificaron de 0 a 3. Fuente: README.md y data/evaluation/reviewed_queries.json.");
 }
 
 // Slide 3: the main result.
@@ -85,7 +85,7 @@ function base(number, title, subtitle = "") {
   text(slide, "Precision@5: BM25 0,4444 · Semántico 0,4222", 76, 502, 1080, 45, 26, ink);
   text(slide, "BM25 incluyó un libro útil más entre 45 posiciones evaluadas.", 76, 558, 1080, 40, 21, ink);
   slide.speakerNotes.textFrame.setText(
-    "Tiempo sugerido: 45 s. nDCG@5 es la métrica principal y evalúa el orden de los cinco primeros libros. El semántico obtuvo 0,8998 y BM25 0,8456. En Precision@5, BM25 obtuvo 20 libros con nota 2 o 3 entre 45 posiciones, y el semántico 19. Fuente: results/evaluation_reviewed.csv. Muestra pequeña; no afirmar generalización.");
+    "Tiempo sugerido: 40 s. nDCG@5 es la métrica principal y evalúa el orden de los cinco primeros libros. El semántico obtuvo 0,8998 y BM25 0,8456. En Precision@5, BM25 obtuvo 20 libros con nota 2 o 3 entre 45 posiciones, y el semántico 19. Fuente: results/evaluation_reviewed.csv. Muestra pequeña; no afirmar generalización.");
 }
 
 // Slide 4: demonstration.
@@ -113,12 +113,12 @@ function base(number, title, subtitle = "") {
     112, 365, 1060, 145, 26, ink);
   text(slide, "Repositorio: github.com/charlydeveloping/Bookery-AI", 78, 555, 1100, 55, 23, green, true);
   slide.speakerNotes.textFrame.setText(
-    "Tiempo sugerido: 55 s. Explicar que el resultado vale para estas nueve consultas y este catálogo. La evaluación no mide la calidad de explicaciones LLM ni la variante Jev. Mostrar el repositorio y señalar README, informe y CSV revisado. Total sugerido: 5 minutos.");
+    "Tiempo sugerido: 50 s. Explicar que el resultado vale para estas nueve consultas y este catálogo. La evaluación no mide la calidad de explicaciones LLM ni la variante Jev. Mostrar el repositorio y señalar README, informe y CSV revisado. Total sugerido: 5 minutos.");
 }
 
 await fs.mkdir(TMP_DIR, { recursive: true });
 await fs.mkdir(path.dirname(FINAL_PPTX), { recursive: true });
-const candidatePath = path.join(TMP_DIR, "candidate-bookery-v3.pptx");
+const candidatePath = path.join(TMP_DIR, "candidate-bookery-v4.pptx");
 await (await PresentationFile.exportPptx(presentation)).save(candidatePath);
 const result = await finalizePresentation({
   workspaceDir,
@@ -133,7 +133,7 @@ const result = await finalizePresentation({
   requiredNativeChartOwnerSlides: [],
   fontPolicy: { basis: "design", families: [family] },
   verifyArtifactToolImport: true,
-  receiptPath: path.join(TMP_DIR, "bookery-validation-v3.json"),
+  receiptPath: path.join(TMP_DIR, "bookery-validation-v4.json"),
 });
 for (let index = 0; index < presentation.slides.length; index++) {
   const slide = presentation.slides.getByIndex(index);
