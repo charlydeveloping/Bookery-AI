@@ -132,6 +132,21 @@ def test_llm_rejects_unknown_book_and_uses_basic_explanation():
         assert "similitud semántica" in payload["recommendations"][0]["reason"]
 
 
+def test_metadata_only_books_do_not_get_invented_llm_plot_explanations():
+    books = clean(RAW)
+    books[0]["description_origin"] = "resumen de metadatos revisado manualmente; sin sinopsis argumental"
+
+    class UnexpectedExplainer:
+        def explain(self, _query, _books):
+            raise AssertionError("Metadata-only books have no plot evidence")
+
+    with TestClient(create_app(books, FakeSemantic(books), UnexpectedExplainer())) as client:
+        payload = client.post("/api/recommend", json={"query": "Una historia sobre programación",
+                                                       "genre": "Ciencia"}).json()
+        assert payload["explanation_mode"] == "basic"
+        assert "no permite confirmar detalles de la trama" in payload["recommendations"][0]["reason"]
+
+
 def test_author_similarity_uses_catalog_topics_and_skips_llm():
     books = clean(RAW)
     books[0]["genres"] = ["Psicología", "Crecimiento personal"]

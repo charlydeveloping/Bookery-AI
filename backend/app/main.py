@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 from ml.bm25_retriever import BM25Retriever
 from ml.dataset import (descriptive_similarity_query, direct_book_query, extract_similarity_reference, find_author_in_query,
-                        load_books, matches, reference_context, similarity_reference_query)
+                        infer_genre, load_books, matches, reference_context, similarity_reference_query)
 from ml.semantic_retriever import SemanticRetriever
 from backend.app.llm import LLMExplainer
 
@@ -106,17 +106,22 @@ def create_app(books=None, semantic=None, explainer=None):
         retriever = app.state.semantic if method == "semantic" else app.state.bm25
         if retriever is None:
             raise HTTPException(status_code=503, detail="Índice semántico no disponible")
-        results = retriever.search(request.query, k=request.limit, language=request.language, genre=request.genre, author=request.author)
-        books = [book for book, _ in results]
         reference = reference_context(request.query, app.state.books)
-        explanations = (app.state.explainer.explain(request.query, books)
-                        if method == "semantic" and app.state.explainer and books and not reference else None)
+        genre = request.genre or (None if reference else infer_genre(request.query, app.state.books))
+        results = retriever.search(request.query, k=request.limit, language=request.language, genre=genre, author=request.author)
+        books = [book for book, _ in results]
+        described_books = [book for book in books if "sin sinopsis argumental" not in book.get("description_origin", "")]
+        explanations = (app.state.explainer.explain(request.query, described_books)
+                        if method == "semantic" and app.state.explainer and described_books and not reference else None)
         recommendations = []
         for book, score in results:
             shared_topics = sorted(set(book["genres"]) & set(reference["genres"])) if reference else []
             if reference and shared_topics:
                 reason = (f"Comparte las categorías {', '.join(shared_topics)} registradas para los libros de "
                           f"{reference['label']}.")
+            elif "sin sinopsis argumental" in book.get("description_origin", ""):
+                reason = (f"Clasificado como {', '.join(book['genres'][:2])} en este catálogo. "
+                          "La ficha no permite confirmar detalles de la trama.")
             else:
                 reason = (explanations or {}).get(book["id"]) or \
                          f"Coincide con tu búsqueda según {'similitud semántica' if method == 'semantic' else 'términos del catálogo'}. Género: {', '.join(book['genres'][:2])}."

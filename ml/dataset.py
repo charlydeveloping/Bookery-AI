@@ -55,11 +55,16 @@ def referenced_book_ids(query, books):
         author_phrase = f" {folded_words(author)} "
         if author_phrase in query_words:
             excluded.update(book["id"] for book in books if book["author"] == author)
+    matched_titles = []
     for book in books:
         for title in [book["title"], *book.get("reference_aliases", [])]:
             if f" {folded_words(title)} " in query_words:
                 excluded.add(book["id"])
+                matched_titles.append(book)
                 break
+    if matched_titles:
+        reference_authors = {book["author"] for book in matched_titles}
+        excluded.update(book["id"] for book in books if book["author"] in reference_authors)
     return excluded
 
 
@@ -69,6 +74,9 @@ def expand_reference_query(query, books):
     if not referenced:
         return query
     reference_books = [book for book in books if book["id"] in referenced]
+    named_book = find_title_in_query(query, reference_books)
+    if named_book and not find_author_in_query(query, reference_books):
+        reference_books = [named_book]
     profile_topics = list(dict.fromkeys(topic for book in reference_books for topic in book.get("reference_topics", [])))
     if profile_topics:
         details = [f"Temas de referencia: {', '.join(profile_topics)}."]
@@ -90,10 +98,28 @@ def reference_context(query, books):
     authors = {book["author"] for book in reference_books}
     query_words = f" {folded_words(query)} "
     author = next((name for name in authors if f" {folded_words(name)} " in query_words), None)
-    topics = list(dict.fromkeys(topic for book in reference_books for topic in book.get("reference_topics", [])))
-    genres = sorted({genre for book in reference_books for genre in book["genres"]})
-    return {"label": author or reference_books[0]["title"], "book_ids": referenced,
+    named_book = find_title_in_query(query, reference_books)
+    profile_books = reference_books if author or not named_book else [named_book]
+    topics = list(dict.fromkeys(topic for book in profile_books for topic in book.get("reference_topics", [])))
+    genres = sorted({genre for book in profile_books for genre in book["genres"]})
+    return {"label": author or (named_book or reference_books[0])["title"], "book_ids": referenced,
             "topics": topics or genres, "genres": genres}
+
+
+def infer_genre(query, books):
+    """Apply explicit catalog categories and unambiguous Spanish synonyms."""
+    words = f" {folded_words(query)} "
+    synonyms = {"programacion": "Tecnología", "programar": "Tecnología",
+                "cocinar": "Cocina", "recetas": "Cocina",
+                "viajar": "Viajes", "viaje": "Viajes"}
+    for term, genre in synonyms.items():
+        if f" {term} " in words:
+            return genre
+    categories = sorted({genre for book in books for genre in book["genres"]}, key=len, reverse=True)
+    for genre in categories:
+        if len(folded_words(genre)) >= 5 and f" {folded_words(genre)} " in words:
+            return genre
+    return None
 
 
 def availability_query(query):

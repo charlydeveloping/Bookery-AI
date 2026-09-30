@@ -46,7 +46,9 @@ def build_catalog(annotations, sources):
                       "published_date": source.get("first_publish_year"),
                       "edition_id": source["edition_id"], "source_url": source["source_url"],
                       "metadata_source": metadata_source,
-                      "description_origin": "redacción original para demostración académica",
+                      "description_origin": item.get("description_origin", "redacción original para demostración académica"),
+                      "popularity_signal": item.get("popularity_signal"),
+                      "selection_category": item.get("selection_category"),
                       "reference_topics": [normalize_text(topic) for topic in item.get("reference_topics", [])],
                       "searchable_text": f"{title}. {author}. {', '.join(genres)}. {description}"})
     if not books:
@@ -62,6 +64,13 @@ def main():
     args = parser.parse_args()
     annotations = json.loads(Path(args.annotations).read_text(encoding="utf-8"))
     sources = json.loads(Path(args.sources).read_text(encoding="utf-8"))
+    extra_annotations = Path("data/curated/popular_annotations_es.json")
+    extra_sources = Path("data/curated/popular_editions_es.json")
+    if extra_annotations.exists() != extra_sources.exists():
+        raise ValueError("Both popular catalog snapshots are required")
+    if extra_annotations.exists():
+        annotations.extend(json.loads(extra_annotations.read_text(encoding="utf-8")))
+        sources.extend(json.loads(extra_sources.read_text(encoding="utf-8")))
     books = build_catalog(annotations, sources)
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)

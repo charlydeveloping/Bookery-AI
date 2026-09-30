@@ -5,7 +5,8 @@ import pytest
 
 from ml.bm25_retriever import BM25Retriever
 from ml.build_curated_catalog import build_catalog
-from ml.dataset import referenced_book_ids
+from ml.expand_popular_catalog import build_entry, collect, spanish_edition
+from ml.dataset import infer_genre, load_books, referenced_book_ids
 from ml.metrics import ndcg_at_k, precision_at_k, preference_compliance
 from ml.prepare_dataset import clean
 from ml.semantic_retriever import MODEL_NAME, MODEL_REVISION, SemanticRetriever, catalog_hash
@@ -58,7 +59,7 @@ def test_spanish_catalog_excludes_named_reference():
                     "description": "Un estudiante descubre la magia y encuentra amistades nuevas mientras investiga un misterio en una escuela de hechicería."},
                    {"id": "b", "title": "El hobbit", "genres": ["Fantasía"],
                     "description": "Un viajero abandona su hogar y participa en una aventura fantástica junto a un grupo que busca un tesoro custodiado por un dragón."}]
-    sources = [{"id": key, "author": "Autor", "edition_id": key + "M",
+    sources = [{"id": key, "author": "Autor " + key, "edition_id": key + "M",
                 "edition_language": "spa", "source_url": "https://openlibrary.org/books/" + key + "M"}
                for key in ("a", "b")]
     books = build_catalog(annotations, sources)
@@ -70,3 +71,38 @@ def test_spanish_catalog_excludes_named_reference():
 def test_metrics():
     assert ndcg_at_k(["a", "b"], {"a": 3, "b": 2}) == 1
     assert precision_at_k(["a", "b"], {"a": 3, "b": 2}) == 0.4
+
+
+def test_popular_import_requires_verified_spanish_edition_and_deduplicates():
+    doc = {"key": "/works/OL999W", "title": "Sample Work", "author_name": ["Autor Ejemplo"],
+           "readinglog_count": 100, "subject": ["Magic", "Adventure"],
+           "editions": {"docs": [
+               {"key": "/books/OL1M", "title": "English title", "language": ["eng"]},
+               {"key": "/books/OL2M", "title": "Título español", "language": ["spa"]}]}}
+    assert spanish_edition(doc) == ("OL2M", "Título español")
+    annotation, source = build_entry(doc, "fantasy", "Fantasía")
+    assert annotation["title"] == "Título español"
+    assert "Fantasía" in annotation["genres"]
+    assert source["edition_language"] == "spa"
+    assert build_entry({**doc, "editions": {"docs": [{"key": "/books/OL1M",
+                        "title": "English title", "language": ["eng"]}]}}, "fantasy", "Fantasía") is None
+
+    def fetch(_url):
+        return {"docs": [doc]}
+
+    annotations, sources, counts = collect(set(), quota=1, fetch=fetch, pause=0)
+    assert len(annotations) == len(sources) == 1
+    assert sum(counts.values()) == 1
+
+
+def test_expanded_catalog_covers_categories_and_excludes_same_author_references():
+    books = load_books("data/processed/books.json")
+    assert len(books) >= 200
+    assert all(book["language"] == "es" and book.get("source_url") for book in books)
+    genres = {genre for book in books for genre in book["genres"]}
+    assert {"Fantasía", "Ciencia ficción", "Misterio", "Romance", "Terror",
+            "Poesía", "Cocina", "Tecnología", "Viajes", "Cómic"} <= genres
+    assert infer_genre("Quiero aprender programación", books) == "Tecnología"
+    excluded = referenced_book_ids("Algo parecido a Harry Potter", books)
+    assert excluded
+    assert all(book["id"] in excluded for book in books if book["author"] == "J. K. Rowling")

@@ -1,3 +1,3 @@
 method,queries,ndcg_at_5,precision_at_5,preference_compliance,response_time_ms
-BM25,9,0.8735,0.2667,1.0,0.1823
-Semantic,9,0.8357,0.3333,1.0,7.6276
+BM25,9,0.8621,0.2667,1.0,0.6679
+Semantic,9,0.854,0.3333,1.0,27.7351

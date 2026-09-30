@@ -1,0 +1,807 @@
+[
+  {
+    "id": "OL257943W",
+    "title": "Juego de tronos",
+    "genre": "Fantasía"
+  },
+  {
+    "id": "OL17860744W",
+    "title": "Una corte de Niebla y Furia",
+    "genre": "Fantasía"
+  },
+  {
+    "id": "OL1168083W",
+    "title": "Mil novecientos ochenta y cuatro",
+    "genre": "Distopía"
+  },
+  {
+    "id": "OL5735363W",
+    "title": "Los juegos del hambre",
+    "genre": "Distopía"
+  },
+  {
+    "id": "OL82537W",
+    "title": "Harry Potter y la cámara secreta",
+    "genre": "Fantasía"
+  },
+  {
+    "id": "OL5720023W",
+    "title": "Crepúsculo",
+    "genre": "Fantasía"
+  },
+  {
+    "id": "OL82586W",
+    "title": "Harry Potter y las reliquias de la muerte",
+    "genre": "Fantasía"
+  },
+  {
+    "id": "OL82560W",
+    "title": "Harry Potter y el cáliz de fuego",
+    "genre": "Fantasía"
+  },
+  {
+    "id": "OL17075811W",
+    "title": "De animales a dioses",
+    "genre": "Historia"
+  },
+  {
+    "id": "OL103123W",
+    "title": "Fahrenheit 451",
+    "genre": "Ciencia ficción"
+  },
+  {
+    "id": "OL498556W",
+    "title": "La Metamorfosis",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL675783W",
+    "title": "El cuento de la criada",
+    "genre": "Ciencia ficción"
+  },
+  {
+    "id": "OL1846076W",
+    "title": "El Dador",
+    "genre": "Ciencia ficción"
+  },
+  {
+    "id": "OL2163649W",
+    "title": "Guía del autoestopista galáctico",
+    "genre": "Ciencia ficción"
+  },
+  {
+    "id": "OL20646061W",
+    "title": "Asesinato para Principiantes",
+    "genre": "Misterio"
+  },
+  {
+    "id": "OL82565W",
+    "title": "Harry Potter y el misterio del príncipe",
+    "genre": "Fantasía"
+  },
+  {
+    "id": "OL76837W",
+    "title": "El código Da Vinci",
+    "genre": "Misterio"
+  },
+  {
+    "id": "OL166894W",
+    "title": "El crimen y el castigo",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL18766691W",
+    "title": "La chica salvaje",
+    "genre": "Misterio"
+  },
+  {
+    "id": "OL17797857W",
+    "title": "Alguien está mintiendo",
+    "genre": "Misterio"
+  },
+  {
+    "id": "OL471565W",
+    "title": "Diez negritos",
+    "genre": "Misterio"
+  },
+  {
+    "id": "OL27729743W",
+    "title": "La empleada",
+    "genre": "Misterio"
+  },
+  {
+    "id": "OL27733867W",
+    "title": "Volver a empezar",
+    "genre": "Romance"
+  },
+  {
+    "id": "OL24390422W",
+    "title": "Twisted 1. Twisted Love",
+    "genre": "Romance"
+  },
+  {
+    "id": "OL28952677W",
+    "title": "Romper el Hielo",
+    "genre": "Romance"
+  },
+  {
+    "id": "OL20577143W",
+    "title": "Ugly Love",
+    "genre": "Romance"
+  },
+  {
+    "id": "OL16336633W",
+    "title": "Cincuenta sombras de Grey",
+    "genre": "Romance"
+  },
+  {
+    "id": "OL25515697W",
+    "title": "Twisted 2. Twisted Games",
+    "genre": "Romance"
+  },
+  {
+    "id": "OL20068530W",
+    "title": "Verity",
+    "genre": "Suspenso"
+  },
+  {
+    "id": "OL16444438W",
+    "title": "Bajo la misma estrella",
+    "genre": "Romance"
+  },
+  {
+    "id": "OL27245843W",
+    "title": "Twisted Hate",
+    "genre": "Romance"
+  },
+  {
+    "id": "OL17352669W",
+    "title": "Una corte de rosas y espinas",
+    "genre": "Romance"
+  },
+  {
+    "id": "OL81633W",
+    "title": "El resplandor",
+    "genre": "Terror"
+  },
+  {
+    "id": "OL679358W",
+    "title": "Coraline (edición Ilustrada) /Coraline. (Illustrated Edition)",
+    "genre": "Terror"
+  },
+  {
+    "id": "OL81631W",
+    "title": "Cementerio de Animales",
+    "genre": "Terror"
+  },
+  {
+    "id": "OL8193416W",
+    "title": "El Retrato de Dorian Gray",
+    "genre": "Terror"
+  },
+  {
+    "id": "OL52266W",
+    "title": "El Hombre Invisible",
+    "genre": "Ciencia ficción"
+  },
+  {
+    "id": "OL1812933W",
+    "title": "American Psycho",
+    "genre": "Terror"
+  },
+  {
+    "id": "OL81632W",
+    "title": "El misterio de Salem’s Lot",
+    "genre": "Terror"
+  },
+  {
+    "id": "OL16509148W",
+    "title": "La canción de Aquiles",
+    "genre": "Novela histórica"
+  },
+  {
+    "id": "OL21177W",
+    "title": "Cumbres borrascosas",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL468431W",
+    "title": "El Gran Gatsby",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL29983W",
+    "title": "Mujercitas",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL5781992W",
+    "title": "Cometas En El Cielo",
+    "genre": "Novela histórica"
+  },
+  {
+    "id": "OL5819456W",
+    "title": "La ladrona de libros",
+    "genre": "Novela histórica"
+  },
+  {
+    "id": "OL102749W",
+    "title": "Moby Dick",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL9170454W",
+    "title": "Hamlet",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL20234863W",
+    "title": "Todas mis heridas",
+    "genre": "Literatura juvenil"
+  },
+  {
+    "id": "OL16142094W",
+    "title": "Wonder: La lección de August",
+    "genre": "Literatura juvenil"
+  },
+  {
+    "id": "OL20354498W",
+    "title": "Heartstopper 1. Dos chicos juntos",
+    "genre": "Literatura juvenil"
+  },
+  {
+    "id": "OL29226517W",
+    "title": "Alas de Sangre",
+    "genre": "Literatura juvenil"
+  },
+  {
+    "id": "OL17714701W",
+    "title": "El odio que das",
+    "genre": "Literatura juvenil"
+  },
+  {
+    "id": "OL3335245W",
+    "title": "El guardián entre el centeno",
+    "genre": "Literatura juvenil"
+  },
+  {
+    "id": "OL45790W",
+    "title": "Charlie y la fábrica de chocolate",
+    "genre": "Literatura infantil"
+  },
+  {
+    "id": "OL875437W",
+    "title": "Las ventajas de ser invisible",
+    "genre": "Literatura juvenil"
+  },
+  {
+    "id": "OL15401200W",
+    "title": "El héroe perdido",
+    "genre": "Literatura juvenil"
+  },
+  {
+    "id": "OL10263W",
+    "title": "El Principito / The Little Prince",
+    "genre": "Literatura infantil"
+  },
+  {
+    "id": "OL5819962W",
+    "title": "Verano en Que Me Enamoré",
+    "genre": "Literatura juvenil"
+  },
+  {
+    "id": "OL82548W",
+    "title": "Harry Potter y la orden del Fénix",
+    "genre": "Fantasía"
+  },
+  {
+    "id": "OL483391W",
+    "title": "Las telarañas de Carlota",
+    "genre": "Literatura infantil"
+  },
+  {
+    "id": "OL455327W",
+    "title": "El Señor de las Moscas",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL266178W",
+    "title": "El diario de Ana Frank",
+    "genre": "Biografía"
+  },
+  {
+    "id": "OL5682519W",
+    "title": "Dias de Perros",
+    "genre": "Literatura infantil"
+  },
+  {
+    "id": "OL138052W",
+    "title": "Alicia en el País de las Maravillas (abreviado)",
+    "genre": "Literatura infantil"
+  },
+  {
+    "id": "OL8125760W",
+    "title": "El Hacha",
+    "genre": "Literatura infantil"
+  },
+  {
+    "id": "OL3140822W",
+    "title": "Matar un ruiseñor",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL1230613W",
+    "title": "El extranjero",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL1089297W",
+    "title": "El príncipe",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL891786W",
+    "title": "Todo se desmorona",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL71037W",
+    "title": "Narnia II - El Leon, La Bruja y El Armario",
+    "genre": "Fantasía"
+  },
+  {
+    "id": "OL1095427W",
+    "title": "Jane Eyre",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL24156W",
+    "title": "El caso extraño del Doctor Jekyll",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL36287W",
+    "title": "El Conde de Monte Cristo",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL8193465W",
+    "title": "El Marqués de Saint-Évremont o París y Londres en 1793",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL1898309W",
+    "title": "El gato ensombrerado",
+    "genre": "Literatura infantil"
+  },
+  {
+    "id": "OL258902W",
+    "title": "Macbéth",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL61982W",
+    "title": "La Odisea.",
+    "genre": "Poesía"
+  },
+  {
+    "id": "OL1898308W",
+    "title": "Huevos verdes con jamón",
+    "genre": "Literatura infantil"
+  },
+  {
+    "id": "OL17800586W",
+    "title": "El sol y sus flores",
+    "genre": "Poesía"
+  },
+  {
+    "id": "OL259010W",
+    "title": "Ensueno de una noche de estío",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL61981W",
+    "title": "La Iliada",
+    "genre": "Poesía"
+  },
+  {
+    "id": "OL1968368W",
+    "title": "Las 48 Leyes del Poder",
+    "genre": "Negocios"
+  },
+  {
+    "id": "OL1063267W",
+    "title": "Cómo ganar amigos e influir sobre las personas",
+    "genre": "Crecimiento personal"
+  },
+  {
+    "id": "OL5727686W",
+    "title": "El poder del ahora",
+    "genre": "Filosofía"
+  },
+  {
+    "id": "OL1268413W",
+    "title": "El hombre en busca de sentido",
+    "genre": "Filosofía"
+  },
+  {
+    "id": "OL1892617W",
+    "title": "Historia del tiempo",
+    "genre": "Ciencia"
+  },
+  {
+    "id": "OL1822313W",
+    "title": "Martes con mi viejo profesor",
+    "genre": "Biografía"
+  },
+  {
+    "id": "OL872932W",
+    "title": "Siddhartha",
+    "genre": "Filosofía"
+  },
+  {
+    "id": "OL527464W",
+    "title": "Piense y hágase rico",
+    "genre": "Crecimiento personal"
+  },
+  {
+    "id": "OL21640039W",
+    "title": "La psicología del dinero",
+    "genre": "Psicología"
+  },
+  {
+    "id": "OL55806W",
+    "title": "El Poder de la Mente Subconsciente",
+    "genre": "Psicología"
+  },
+  {
+    "id": "OL18108064W",
+    "title": "No Me Puedes Lastimar",
+    "genre": "Crecimiento personal"
+  },
+  {
+    "id": "OL2629977W",
+    "title": "Los 7 hábitos de la gente altemente efectiva",
+    "genre": "Crecimiento personal"
+  },
+  {
+    "id": "OL1968364W",
+    "title": "El arte de la seduccion",
+    "genre": "Crecimiento personal"
+  },
+  {
+    "id": "OL19714233W",
+    "title": "Método Ikigai",
+    "genre": "Psicología"
+  },
+  {
+    "id": "OL17713267W",
+    "title": "Céntrate",
+    "genre": "Psicología"
+  },
+  {
+    "id": "OL8165007W",
+    "title": "El hombre más rico de Babilonia",
+    "genre": "Crecimiento personal"
+  },
+  {
+    "id": "OL2392324W",
+    "title": "Tráguese ese sapo!",
+    "genre": "Crecimiento personal"
+  },
+  {
+    "id": "OL276492W",
+    "title": "El monje que vendio su ferrari",
+    "genre": "Crecimiento personal"
+  },
+  {
+    "id": "OL16215950W",
+    "title": "DEJA DE SER TU. LA MENTE CREA LA REALIDAD",
+    "genre": "Crecimiento personal"
+  },
+  {
+    "id": "OL17102197W",
+    "title": "¡Eres un chingón!",
+    "genre": "Crecimiento personal"
+  },
+  {
+    "id": "OL3792044W",
+    "title": "La ciencia de hacerse rico",
+    "genre": "Crecimiento personal"
+  },
+  {
+    "id": "OL99079W",
+    "title": "Psicocibernética",
+    "genre": "Crecimiento personal"
+  },
+  {
+    "id": "OL5749849W",
+    "title": "Blink : Inteligencia Intuitiva : ¿Por Qué Sabemos la Verdad en Dos Segundos? / Blink",
+    "genre": "Crecimiento personal"
+  },
+  {
+    "id": "OL273184W",
+    "title": "Inversor Inteligente",
+    "genre": "Negocios"
+  },
+  {
+    "id": "OL16085155W",
+    "title": "Steve Jobs",
+    "genre": "Biografía"
+  },
+  {
+    "id": "OL1906484W",
+    "title": "La Magia de Pensar en Grande",
+    "genre": "Negocios"
+  },
+  {
+    "id": "OL17184556W",
+    "title": "Elon Musk : el Empresario Que Anticipa el Futuro / Elon Musk : Tesla, SpaceX, and the Quest for a Fantastic Future",
+    "genre": "Biografía"
+  },
+  {
+    "id": "OL20033244W",
+    "title": "El ego es el enemigo",
+    "genre": "Negocios"
+  },
+  {
+    "id": "OL18819818W",
+    "title": "Rompe la barrera del NO",
+    "genre": "Negocios"
+  },
+  {
+    "id": "OL2010893W",
+    "title": "Padre rico, padre pobre para jóvenes",
+    "genre": "Negocios"
+  },
+  {
+    "id": "OL3353439W",
+    "title": "Semana Laboral de 4 Horas / the 4-Hour Workweek",
+    "genre": "Negocios"
+  },
+  {
+    "id": "OL278022W",
+    "title": "Freakonomics",
+    "genre": "Negocios"
+  },
+  {
+    "id": "OL15473892W",
+    "title": "Mba Personal",
+    "genre": "Negocios"
+  },
+  {
+    "id": "OL528094W",
+    "title": "Autobiografia de un Yogui",
+    "genre": "Biografía"
+  },
+  {
+    "id": "OL267096W",
+    "title": "Ana Karenina",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL80021W",
+    "title": "Yo Se Por Que Canta el Pajaro Enjaulado",
+    "genre": "Biografía"
+  },
+  {
+    "id": "OL695408W",
+    "title": "Leonardo Da Vinci",
+    "genre": "Biografía"
+  },
+  {
+    "id": "OL81601W",
+    "title": "Mientras escribo",
+    "genre": "Biografía"
+  },
+  {
+    "id": "OL629052W",
+    "title": "Manifiesto Communista",
+    "genre": "Filosofía"
+  },
+  {
+    "id": "OL17825802W",
+    "title": "Nunca te pares",
+    "genre": "Biografía"
+  },
+  {
+    "id": "OL46881W",
+    "title": "Jurassic Park",
+    "genre": "Ciencia ficción"
+  },
+  {
+    "id": "OL1983087W",
+    "title": "Biología",
+    "genre": "Ciencia"
+  },
+  {
+    "id": "OL17358795W",
+    "title": "Materia Oscura",
+    "genre": "Ciencia ficción"
+  },
+  {
+    "id": "OL46876W",
+    "title": "El Mundo Perdido",
+    "genre": "Ciencia ficción"
+  },
+  {
+    "id": "OL17641518W",
+    "title": "Homo deus : breve historia del mañana",
+    "genre": "Ensayo social"
+  },
+  {
+    "id": "OL76836W",
+    "title": "La fortaleza digital",
+    "genre": "Suspenso"
+  },
+  {
+    "id": "OL1970691W",
+    "title": "Redes de Computadoras",
+    "genre": "Tecnología"
+  },
+  {
+    "id": "OL17917961W",
+    "title": "21 lecciones para el siglo XXI",
+    "genre": "Ensayo social"
+  },
+  {
+    "id": "OL159642W",
+    "title": "Tormenta roja",
+    "genre": "Suspenso"
+  },
+  {
+    "id": "OL53908W",
+    "title": "Las aventuras Huck Finn",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL98459W",
+    "title": "Matadero Cinco",
+    "genre": "Ciencia ficción"
+  },
+  {
+    "id": "OL74128W",
+    "title": "Una breve historia de casi todo",
+    "genre": "Ciencia"
+  },
+  {
+    "id": "OL3261155W",
+    "title": "Forastera / Outlander",
+    "genre": "Novela histórica"
+  },
+  {
+    "id": "OL38663W",
+    "title": "Corazon de Las Tinieblas",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL40873W",
+    "title": "La carretera",
+    "genre": "Distopía"
+  },
+  {
+    "id": "OL8721462W",
+    "title": "Grandes Esperanzas",
+    "genre": "Clásico"
+  },
+  {
+    "id": "OL953162W",
+    "title": "Como Agua Para Chocolate/Like Water for Chocolate",
+    "genre": "Romance"
+  },
+  {
+    "id": "OL25344431W",
+    "title": "Lecciones de Química / Lessons in Chemistry",
+    "genre": "Ficción contemporánea"
+  },
+  {
+    "id": "OL3348011W",
+    "title": "Confesiones de un chef = Kitchen Confidential",
+    "genre": "Cocina"
+  },
+  {
+    "id": "OL3296483W",
+    "title": "Dilema del Omnívoro",
+    "genre": "Cocina"
+  },
+  {
+    "id": "OL7095112W",
+    "title": "El Libro del Te",
+    "genre": "Cocina"
+  },
+  {
+    "id": "OL5801795W",
+    "title": "Fast Food/ Fast Food Nation (Actualidad)",
+    "genre": "Cocina"
+  },
+  {
+    "id": "OL18147901W",
+    "title": "Sal, grasa, ácido, calor",
+    "genre": "Cocina"
+  },
+  {
+    "id": "OL1672346W",
+    "title": "Sopa de piedras",
+    "genre": "Literatura infantil"
+  },
+  {
+    "id": "OL76833W",
+    "title": "Ángeles y demonios",
+    "genre": "Misterio"
+  },
+  {
+    "id": "OL49488W",
+    "title": "El juego de Ender",
+    "genre": "Ciencia ficción"
+  },
+  {
+    "id": "OL45499W",
+    "title": "Tao Te Ching",
+    "genre": "Filosofía"
+  },
+  {
+    "id": "OL17076301W",
+    "title": "Hable como en TED",
+    "genre": "Crecimiento personal"
+  },
+  {
+    "id": "OL35623W",
+    "title": "La parábola del sembrador",
+    "genre": "Ciencia ficción"
+  },
+  {
+    "id": "OL145191W",
+    "title": "Picasso",
+    "genre": "Arte"
+  },
+  {
+    "id": "OL14856321W",
+    "title": "El Camino Del Artista En Accion",
+    "genre": "Arte"
+  },
+  {
+    "id": "OL16809803W",
+    "title": "El jilguero - 1. edicion",
+    "genre": "Ficción contemporánea"
+  },
+  {
+    "id": "OL8483260W",
+    "title": "Diario de Greg",
+    "genre": "Cómic"
+  },
+  {
+    "id": "OL17610986W",
+    "title": "las flipantes aventuras del perro hombre",
+    "genre": "Cómic"
+  },
+  {
+    "id": "OL15110516W",
+    "title": "Diario De Greg La Ley De Rodrick",
+    "genre": "Cómic"
+  },
+  {
+    "id": "OL16224122W",
+    "title": "Diario de Greg 6. ¡Atrapados en la nieve!",
+    "genre": "Cómic"
+  },
+  {
+    "id": "OL17603394W",
+    "title": "Diario de Greg 11. ¡A toda marcha!",
+    "genre": "Cómic"
+  },
+  {
+    "id": "OL28059462W",
+    "title": "Vuelta Al Mundo en 80 días/Around the World in Eighty Days",
+    "genre": "Viajes"
+  },
+  {
+    "id": "OL65906W",
+    "title": "En el camino",
+    "genre": "Viajes"
+  },
+  {
+    "id": "OL1974546W",
+    "title": "Hacia Rutas Salvajes / into the Wild",
+    "genre": "Viajes"
+  }
+]
