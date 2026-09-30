@@ -64,7 +64,7 @@ def import_books(limit_per_query=20):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit-per-query", type=int, default=20)
-    parser.add_argument("--output", default="data/processed/books.json")
+    parser.add_argument("--output", default="data/processed/books_openlibrary_unreviewed.json")
     args = parser.parse_args()
     if args.limit_per_query < 1:
         parser.error("--limit-per-query must be positive")

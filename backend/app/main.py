@@ -5,11 +5,14 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field, field_validator
+from dotenv import load_dotenv
 
 from ml.bm25_retriever import BM25Retriever
 from ml.dataset import load_books
 from ml.semantic_retriever import SemanticRetriever
 from backend.app.llm import LLMExplainer
+
+load_dotenv()
 
 
 class SearchRequest(BaseModel):

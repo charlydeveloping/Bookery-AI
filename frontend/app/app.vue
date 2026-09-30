@@ -2,11 +2,10 @@
 type Book = { id: string; title: string; author: string; genres: string[]; description: string; score: number; reason: string; source_url?: string }
 const config = useRuntimeConfig()
 const query = ref('')
-const language = ref('')
 const genre = ref('')
 const method = ref<'semantic' | 'bm25'>('semantic')
 const books = ref<Book[]>([])
-const options = ref<{ languages: string[]; genres: string[] }>({ languages: [], genres: [] })
+const options = ref<{ genres: string[] }>({ genres: [] })
 const loading = ref(false)
 const error = ref('')
 const searched = ref(false)
@@ -26,7 +25,7 @@ async function search() {
   try {
     const path = method.value === 'semantic' ? '/api/recommend' : '/api/search/bm25'
     const response = await $fetch<{ recommendations: Book[]; response_time_ms: number; answer: string; explanation_mode: 'llm' | 'basic' }>(`${config.public.apiBase}${path}`, {
-      method: 'POST', body: { query: query.value, language: language.value || null, genre: genre.value || null, limit: 5 }
+      method: 'POST', body: { query: query.value, language: 'es', genre: genre.value || null, limit: 5 }
     })
     books.value = response.recommendations
     elapsed.value = response.response_time_ms
@@ -44,12 +43,11 @@ async function search() {
     <section class="hero">
       <p class="eyebrow">TU PRÓXIMA LECTURA EMPIEZA AQUÍ</p>
       <h1>Recomendador <em>inteligente</em><br>de libros</h1>
-      <p class="intro">Cuéntanos qué historias te interesan. Buscaremos libros reales en nuestro catálogo y te mostraremos los más cercanos a tu idea.</p>
+      <p class="intro">Cuéntanos qué historias te interesan. Buscaremos libros en español de nuestro catálogo académico y te mostraremos los más cercanos a tu idea.</p>
       <form @submit.prevent="search" class="searchbox">
         <label for="query">¿Qué te gustaría leer?</label>
         <textarea id="query" v-model="query" rows="3" placeholder="Quiero una novela de ciencia ficción sobre inteligencia artificial que sea fácil de leer."></textarea>
         <div class="controls">
-          <select v-model="language" aria-label="Idioma"><option value="">Cualquier idioma</option><option v-for="item in options.languages" :key="item" :value="item">{{ item }}</option></select>
           <select v-model="genre" aria-label="Género"><option value="">Cualquier género</option><option v-for="item in options.genres" :key="item" :value="item">{{ item }}</option></select>
           <select v-model="method" aria-label="Método"><option value="semantic">Búsqueda semántica</option><option value="bm25">BM25</option></select>
           <button :disabled="loading" type="submit">{{ loading ? 'Buscando…' : 'Recomendar libros →' }}</button>
@@ -59,7 +57,7 @@ async function search() {
     </section>
     <section v-if="searched" class="results"><div class="section-title"><h2>Libros para ti</h2><span>{{ books.length }} resultados · {{ elapsed }} ms</span></div><div class="answer" role="status"><span class="answer-label">BOOKERY AI · {{ explanationMode === 'llm' ? 'EXPLICACIONES CON IA' : 'MODO BÁSICO' }}</span><p>{{ answer }}</p></div><div class="grid"><article v-for="(book, index) in books" :key="book.id" class="card"><div class="card-top"><span class="number">0{{ index + 1 }}</span><span class="genre">{{ book.genres[0] }}</span></div><h3>{{ book.title }}</h3><p class="author">{{ book.author }}</p><p class="description">{{ book.description }}</p><div class="reason"><span>POR QUÉ ESTE LIBRO</span><p>{{ book.reason }}</p></div><a v-if="book.source_url" :href="book.source_url" target="_blank" rel="noopener noreferrer">Ver fuente ↗</a></article></div></section>
     <section class="about"><div><p class="eyebrow">EL MÉTODO</p><h2>¿Cómo funciona?</h2></div><p>La búsqueda semántica recupera libros del catálogo. Si configuras un modelo de lenguaje, este explica por qué encajan los libros encontrados. BM25 permite comparar los resultados mediante coincidencias de palabras. Los filtros de idioma y género se aplican antes de mostrar resultados.</p></section>
-    <footer>Bookery AI · Los resultados dependen de las descripciones disponibles en el catálogo. No garantizamos que cada libro se ajuste a todos los matices de tu consulta.</footer>
+    <footer>Bookery AI · Catálogo académico de demostración en español; no representa el inventario actual de Todo Libros. Los resultados dependen de las descripciones disponibles.</footer>
   </main>
 </template>
 

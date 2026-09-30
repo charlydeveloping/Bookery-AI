@@ -53,7 +53,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--pages", type=int, default=3)
     parser.add_argument("--raw", default="data/raw/google_books.json")
-    parser.add_argument("--output", default="data/processed/books.json")
+    parser.add_argument("--output", default="data/processed/books_google_unreviewed.json")
     parser.add_argument("--offline", action="store_true")
     args = parser.parse_args()
     raw_path = Path(args.raw)

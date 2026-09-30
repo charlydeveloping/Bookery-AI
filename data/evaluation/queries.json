@@ -1,47 +1,10 @@
 [
-  {
-    "query": "Quiero ciencia ficción sobre un imperio galáctico que se desmorona y una ciencia capaz de prever el futuro",
-    "language": "en",
-    "relevant_books": [
-      {"book_id": "OL46125W", "relevance": 3},
-      {"book_id": "OL46390W", "relevance": 3},
-      {"book_id": "OL46396W", "relevance": 1}
-    ]
-  },
-  {
-    "query": "Busco un misterio clásico con una muerte durante un viaje en tren de lujo",
-    "language": "en",
-    "relevant_books": [
-      {"book_id": "OL471603W", "relevance": 3},
-      {"book_id": "OL471664W", "relevance": 2},
-      {"book_id": "OL472458W", "relevance": 1}
-    ]
-  },
-  {
-    "query": "Me interesa la evolución de la humanidad desde la prehistoria, combinando historia y biología",
-    "language": "en",
-    "relevant_books": [
-      {"book_id": "OL17075811W", "relevance": 3},
-      {"book_id": "OL74128W", "relevance": 1},
-      {"book_id": "OL1108523W", "relevance": 1}
-    ]
-  },
-  {
-    "query": "Quiero una aventura fantástica oscura y espiritual sobre la vida, la muerte y la salvación",
-    "language": "en",
-    "relevant_books": [
-      {"book_id": "OL15437W", "relevance": 3},
-      {"book_id": "OL15450W", "relevance": 2},
-      {"book_id": "OL34774028W", "relevance": 1}
-    ]
-  },
-  {
-    "query": "Busco un futuro donde personas diferentes sean perseguidas por sus capacidades especiales",
-    "language": "en",
-    "relevant_books": [
-      {"book_id": "OL8404014W", "relevance": 3},
-      {"book_id": "OL34774028W", "relevance": 2},
-      {"book_id": "OL273080W", "relevance": 1}
-    ]
-  }
+  {"query":"Quiero leer algo parecido a Harry Potter, con magia, amistades y aventuras juveniles","language":"es","genre":"Fantasía","relevant_books":[{"book_id":"OL492658W","relevance":3},{"book_id":"OL27482W","relevance":2},{"book_id":"OL7924103W","relevance":2},{"book_id":"OL45846W","relevance":1}]},
+  {"query":"Busco ciencia ficción sobre un imperio galáctico que cae y un científico que intenta prever el futuro","language":"es","relevant_books":[{"book_id":"OL46125W","relevance":3},{"book_id":"OL893414W","relevance":2},{"book_id":"OL103134W","relevance":1}]},
+  {"query":"Una novela policial con un asesinato misterioso en un tren detenido por la nieve","language":"es","relevant_books":[{"book_id":"OL471576W","relevance":3},{"book_id":"OL471932W","relevance":1},{"book_id":"OL471891W","relevance":1}]},
+  {"query":"Quiero una saga familiar latinoamericana donde la política se mezcla con hechos sobrenaturales","language":"es","relevant_books":[{"book_id":"OL1905255W","relevance":3},{"book_id":"OL1731119W","relevance":2},{"book_id":"OL274518W","relevance":1}]},
+  {"query":"Una comedia romántica sobre una relación fingida entre personas que trabajan en la universidad","language":"es","relevant_books":[{"book_id":"OL24178205W","relevance":3},{"book_id":"OL66554W","relevance":1},{"book_id":"OL20090688W","relevance":1}]},
+  {"query":"Una distopía donde la sociedad controla las emociones y el comportamiento de todos","language":"es","relevant_books":[{"book_id":"OL64365W","relevance":3},{"book_id":"OL1168007W","relevance":2}]},
+  {"query":"Una historia gótica de un científico que crea un ser y luego abandona su responsabilidad","language":"es","relevant_books":[{"book_id":"OL450063W","relevance":3},{"book_id":"OL85892W","relevance":1}]},
+  {"query":"Un joven encuentra un libro olvidado y descubre secretos de su autor en la Barcelona de posguerra","language":"es","relevant_books":[{"book_id":"OL278437W","relevance":3},{"book_id":"OL110971W","relevance":1}]}
 ]

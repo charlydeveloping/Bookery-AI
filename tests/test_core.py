@@ -4,21 +4,23 @@ import numpy as np
 import pytest
 
 from ml.bm25_retriever import BM25Retriever
+from ml.build_curated_catalog import build_catalog
+from ml.dataset import referenced_book_ids
 from ml.metrics import ndcg_at_k, precision_at_k, preference_compliance
 from ml.prepare_dataset import clean
 from ml.semantic_retriever import MODEL_NAME, MODEL_REVISION, SemanticRetriever, catalog_hash
 
 
 RAW = [
-    {"id": "a", "volumeInfo": {"title": "Future City", "authors": ["A. Writer"], "categories": ["Science fiction"], "language": "en", "description": "A society is governed by pervasive cameras and automated decisions. A woman struggles to recover her freedom from the machinery of social control."}},
-    {"id": "b", "volumeInfo": {"title": "The Orchard", "authors": ["B. Writer"], "categories": ["Literary fiction"], "language": "en", "description": "A family returns to a rural orchard after many years apart. They rebuild their relationships across the changing seasons and remember their shared past."}},
+    {"id": "a", "volumeInfo": {"title": "Ciudad futura", "authors": ["A. Escritora"], "categories": ["Ciencia ficción"], "language": "es", "description": "Una sociedad está gobernada por cámaras y decisiones automatizadas. Una mujer lucha por recuperar su libertad frente a la maquinaria del control social."}},
+    {"id": "b", "volumeInfo": {"title": "El huerto", "authors": ["B. Escritor"], "categories": ["Drama familiar"], "language": "es", "description": "Una familia vuelve a un huerto rural tras muchos años de separación. Sus miembros reconstruyen sus relaciones y recuerdan el pasado compartido."}},
 ]
 
 
 def test_clean_and_valid_bm25_case():
     books = clean(RAW)
     assert len(books) == 2
-    assert BM25Retriever(books).search("cameras automated decisions")[0][0]["id"] == "a"
+    assert BM25Retriever(books).search("cámaras decisiones automatizadas")[0][0]["id"] == "a"
 
 
 def test_difficult_semantic_query_has_no_forced_bm25_success():
@@ -46,8 +48,23 @@ def test_invalid_query_and_filters():
     books = clean(RAW)
     with pytest.raises(ValueError):
         BM25Retriever(books).search("  ")
-    assert BM25Retriever(books).search("city", language="es") == []
-    assert preference_compliance([books[0]], genre="Science") == 1.0
+    assert BM25Retriever(books).search("ciudad", language="en") == []
+    assert preference_compliance([books[0]], genre="Ciencia") == 1.0
+
+
+def test_spanish_catalog_excludes_named_reference():
+    annotations = [{"id": "a", "title": "Harry Potter y la piedra filosofal",
+                    "reference_aliases": ["Harry Potter"], "genres": ["Fantasía"],
+                    "description": "Un estudiante descubre la magia y encuentra amistades nuevas mientras investiga un misterio en una escuela de hechicería."},
+                   {"id": "b", "title": "El hobbit", "genres": ["Fantasía"],
+                    "description": "Un viajero abandona su hogar y participa en una aventura fantástica junto a un grupo que busca un tesoro custodiado por un dragón."}]
+    sources = [{"id": key, "author": "Autor", "edition_id": key + "M",
+                "edition_language": "spa", "source_url": "https://openlibrary.org/books/" + key + "M"}
+               for key in ("a", "b")]
+    books = build_catalog(annotations, sources)
+    assert all(book["language"] == "es" for book in books)
+    assert referenced_book_ids("Algo parecido a Harry Potter", books) == {"a"}
+    assert [book["id"] for book, _ in BM25Retriever(books).search("Parecido a Harry Potter con fantasía")] == ["b"]
 
 
 def test_metrics():

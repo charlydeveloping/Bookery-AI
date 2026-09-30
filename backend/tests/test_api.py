@@ -19,14 +19,14 @@ class FakeSemantic:
 def test_api_end_to_end_contract():
     books = clean(RAW)
     with TestClient(create_app(books, FakeSemantic(books))) as client:
-        response = client.post("/api/recommend", json={"query": "Quiero ciencia ficción", "genre": "Science", "limit": 5})
+        response = client.post("/api/recommend", json={"query": "Quiero ciencia ficción", "genre": "Ciencia", "limit": 5})
         assert response.status_code == 200
         payload = response.json()
         assert [item["id"] for item in payload["recommendations"]] == ["a"]
-        assert client.get("/api/options").json()["languages"] == ["en"]
+        assert client.get("/api/options").json()["languages"] == ["es"]
         assert client.post("/api/recommend", json={"query": "   "}).status_code == 422
         assert client.post("/api/recommend", json={"query": "books", "limit": 0}).status_code == 422
-        assert client.post("/api/search/bm25", json={"query": "cameras"}).json()["recommendations"][0]["id"] == "a"
+        assert client.post("/api/search/bm25", json={"query": "cámaras"}).json()["recommendations"][0]["id"] == "a"
 
 
 def test_llm_explains_only_retrieved_books():
@@ -41,11 +41,11 @@ def test_llm_explains_only_retrieved_books():
     llm = LLMExplainer("https://example.test/v1", "test-model", "test-key",
                        client=httpx.Client(transport=httpx.MockTransport(reply)))
     with TestClient(create_app(books, FakeSemantic(books), llm)) as client:
-        payload = client.post("/api/recommend", json={"query": "ciencia ficción", "genre": "Science"}).json()
+        payload = client.post("/api/recommend", json={"query": "ciencia ficción", "genre": "Ciencia"}).json()
         assert payload["explanation_mode"] == "llm"
         assert [item["id"] for item in payload["recommendations"]] == ["a"]
         assert payload["recommendations"][0]["reason"].startswith("Explora")
-        baseline = client.post("/api/search/bm25", json={"query": "cameras"}).json()
+        baseline = client.post("/api/search/bm25", json={"query": "cámaras"}).json()
         assert baseline["explanation_mode"] == "basic"
 
 
@@ -59,7 +59,7 @@ def test_llm_rejects_unknown_book_and_uses_basic_explanation():
     llm = LLMExplainer("https://example.test/v1", "test-model",
                        client=httpx.Client(transport=httpx.MockTransport(reply)))
     with TestClient(create_app(books, FakeSemantic(books), llm)) as client:
-        payload = client.post("/api/recommend", json={"query": "ciencia ficción", "genre": "Science"}).json()
+        payload = client.post("/api/recommend", json={"query": "ciencia ficción", "genre": "Ciencia"}).json()
         assert payload["explanation_mode"] == "basic"
         assert [item["id"] for item in payload["recommendations"]] == ["a"]
         assert "similitud semántica" in payload["recommendations"][0]["reason"]

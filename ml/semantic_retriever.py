@@ -5,7 +5,7 @@ from pathlib import Path
 
 import numpy as np
 
-from ml.dataset import load_books, matches
+from ml.dataset import expand_reference_query, load_books, matches, reference_genres, referenced_book_ids
 
 MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 MODEL_REVISION = "e8f8c211226b894fcb81acc59f3b34ba3efd5f42"
@@ -47,11 +47,15 @@ class SemanticRetriever:
     def search(self, query, k=5, language=None, genre=None, author=None):
         if not query.strip():
             raise ValueError("Query cannot be empty")
-        vector = np.asarray(self.model.encode([query], normalize_embeddings=True)[0])
+        vector = np.asarray(self.model.encode([expand_reference_query(query, self.books)], normalize_embeddings=True)[0])
         scores = np.einsum("ij,j->i", self.vectors, vector)
+        excluded = referenced_book_ids(query, self.books)
+        shared_genres = reference_genres(self.books, excluded) if not genre else set()
         ranked = [(book, float(scores[index])) for index, book in enumerate(self.books)
-                  if matches(book, language, genre, author)]
-        ranked.sort(key=lambda pair: (-pair[1], pair[0]["id"]))
+                  if book["id"] not in excluded and matches(book, language, genre, author)
+                  and (not shared_genres or any(item.casefold() in shared_genres for item in book["genres"]))]
+        ranked.sort(key=lambda pair: (-sum(item.casefold() in shared_genres for item in pair[0]["genres"]),
+                                      -pair[1], pair[0]["id"]))
         return ranked[:k]
 
 

@@ -1,0 +1,422 @@
+[
+  {
+    "id": "OL82563W",
+    "work_title": "Harry Potter and the Philosopher's Stone",
+    "author": "J. K. Rowling",
+    "edition_id": "OL38565767M",
+    "edition_title": "Harry Potter y la piedra filosofal",
+    "edition_language": "spa",
+    "first_publish_year": 1997,
+    "source_url": "https://openlibrary.org/books/OL38565767M"
+  },
+  {
+    "id": "OL27482W",
+    "work_title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "edition_id": "OL13268284M",
+    "edition_title": "El Hobbit",
+    "edition_language": "spa",
+    "first_publish_year": 1937,
+    "source_url": "https://openlibrary.org/books/OL13268284M"
+  },
+  {
+    "id": "OL27513W",
+    "work_title": "The Fellowship of the Ring",
+    "author": "J.R.R. Tolkien",
+    "edition_id": "OL9131874M",
+    "edition_title": "La comunidad del anillo",
+    "edition_language": "spa",
+    "first_publish_year": 1954,
+    "source_url": "https://openlibrary.org/books/OL9131874M"
+  },
+  {
+    "id": "OL492658W",
+    "work_title": "The Lightning Thief",
+    "author": "Rick Riordan",
+    "edition_id": "OL25440625M",
+    "edition_title": "El ladrón del rayo",
+    "edition_language": "spa",
+    "first_publish_year": 2005,
+    "source_url": "https://openlibrary.org/books/OL25440625M"
+  },
+  {
+    "id": "OL7924103W",
+    "work_title": "The Eye of the World",
+    "author": "Robert Jordan",
+    "edition_id": "OL47660205M",
+    "edition_title": "La Rueda del Tiempo. El Ojo del Mundo",
+    "edition_language": "spa",
+    "first_publish_year": 1990,
+    "source_url": "https://openlibrary.org/books/OL47660205M"
+  },
+  {
+    "id": "OL5738147W",
+    "work_title": "Elantris",
+    "author": "Brandon Sanderson",
+    "edition_id": "OL28345195M",
+    "edition_title": "Elantris",
+    "edition_language": "spa",
+    "first_publish_year": 2005,
+    "source_url": "https://openlibrary.org/books/OL28345195M"
+  },
+  {
+    "id": "OL2577482W",
+    "work_title": "Ostatnie Życzenie",
+    "author": "Andrzej Sapkowski",
+    "edition_id": "OL25838520M",
+    "edition_title": "El último deseo",
+    "edition_language": "spa",
+    "first_publish_year": 1993,
+    "source_url": "https://openlibrary.org/books/OL25838520M"
+  },
+  {
+    "id": "OL24706481W",
+    "work_title": "Once Upon a Broken Heart",
+    "author": "Stephanie Garber",
+    "edition_id": "OL36634839M",
+    "edition_title": "Érase una vez un corazón roto",
+    "edition_language": "spa",
+    "first_publish_year": 2021,
+    "source_url": "https://openlibrary.org/books/OL36634839M"
+  },
+  {
+    "id": "OL45846W",
+    "work_title": "Matilda",
+    "author": "Roald Dahl",
+    "edition_id": "OL39472960M",
+    "edition_title": "Matilda",
+    "edition_language": "spa",
+    "first_publish_year": 1988,
+    "source_url": "https://openlibrary.org/books/OL39472960M"
+  },
+  {
+    "id": "OL69612W",
+    "work_title": "The Secret Garden",
+    "author": "Frances Hodgson Burnett",
+    "edition_id": "OL799594M",
+    "edition_title": "El jardín secreto",
+    "edition_language": "spa",
+    "first_publish_year": 1911,
+    "source_url": "https://openlibrary.org/books/OL799594M"
+  },
+  {
+    "id": "OL46125W",
+    "work_title": "Foundation",
+    "author": "Isaac Asimov",
+    "edition_id": "OL50522332M",
+    "edition_title": "Fundación",
+    "edition_language": "spa",
+    "first_publish_year": 1951,
+    "source_url": "https://openlibrary.org/books/OL50522332M"
+  },
+  {
+    "id": "OL893414W",
+    "work_title": "Dune",
+    "author": "Frank Herbert",
+    "edition_id": "OL47345006M",
+    "edition_title": "Dune / Duna",
+    "edition_language": "spa",
+    "first_publish_year": 1965,
+    "source_url": "https://openlibrary.org/books/OL47345006M"
+  },
+  {
+    "id": "OL64365W",
+    "work_title": "Brave New World",
+    "author": "Aldous Huxley",
+    "edition_id": "OL26426664M",
+    "edition_title": "Un mundo feliz",
+    "edition_language": "spa",
+    "first_publish_year": 1932,
+    "source_url": "https://openlibrary.org/books/OL26426664M"
+  },
+  {
+    "id": "OL103134W",
+    "work_title": "The Martian Chronicles",
+    "author": "Ray Bradbury",
+    "edition_id": "OL45645957M",
+    "edition_title": "Crónicas marcianas",
+    "edition_language": "spa",
+    "first_publish_year": 1950,
+    "source_url": "https://openlibrary.org/books/OL45645957M"
+  },
+  {
+    "id": "OL52267W",
+    "work_title": "The Time Machine",
+    "author": "H. G. Wells",
+    "edition_id": "OL39200420M",
+    "edition_title": "La máquina del tiempo",
+    "edition_language": "spa",
+    "first_publish_year": 1895,
+    "source_url": "https://openlibrary.org/books/OL39200420M"
+  },
+  {
+    "id": "OL450063W",
+    "work_title": "Frankenstein; or, The Modern Prometheus",
+    "author": "Mary Shelley",
+    "edition_id": "OL32100382M",
+    "edition_title": "Frankenstein o El moderno Prometeo",
+    "edition_language": "spa",
+    "first_publish_year": 1818,
+    "source_url": "https://openlibrary.org/books/OL32100382M"
+  },
+  {
+    "id": "OL21745884W",
+    "work_title": "Project Hail Mary",
+    "author": "Andy Weir",
+    "edition_id": "OL32849663M",
+    "edition_title": "Proyecto Hail Mary",
+    "edition_language": "spa",
+    "first_publish_year": 2021,
+    "source_url": "https://openlibrary.org/books/OL32849663M"
+  },
+  {
+    "id": "OL109524W",
+    "work_title": "Solaris",
+    "author": "Stanisław Lem",
+    "edition_id": "OL26778073M",
+    "edition_title": "Solaris",
+    "edition_language": "spa",
+    "first_publish_year": 1961,
+    "source_url": "https://openlibrary.org/books/OL26778073M"
+  },
+  {
+    "id": "OL1168007W",
+    "work_title": "Animal Farm",
+    "author": "George Orwell",
+    "edition_id": "OL25874368M",
+    "edition_title": "Rebelión en la granja",
+    "edition_language": "spa",
+    "first_publish_year": 1945,
+    "source_url": "https://openlibrary.org/books/OL25874368M"
+  },
+  {
+    "id": "OL471576W",
+    "work_title": "Murder on the Orient Express",
+    "author": "Agatha Christie",
+    "edition_id": "OL9142141M",
+    "edition_title": "Asesinato en el Orient Express",
+    "edition_language": "spa",
+    "first_publish_year": 1933,
+    "source_url": "https://openlibrary.org/books/OL9142141M"
+  },
+  {
+    "id": "OL471932W",
+    "work_title": "The Murder of Roger Ackroyd",
+    "author": "Agatha Christie",
+    "edition_id": "OL9889988M",
+    "edition_title": "El Asesinato de Roger Ackroyd",
+    "edition_language": "spa",
+    "first_publish_year": 1926,
+    "source_url": "https://openlibrary.org/books/OL9889988M"
+  },
+  {
+    "id": "OL262421W",
+    "work_title": "The Adventures of Sherlock Holmes [12 stories]",
+    "author": "Arthur Conan Doyle",
+    "edition_id": "OL35676334M",
+    "edition_title": "Aventuras de Sherlock Holmes",
+    "edition_language": "spa",
+    "first_publish_year": 1892,
+    "source_url": "https://openlibrary.org/books/OL35676334M"
+  },
+  {
+    "id": "OL262438W",
+    "work_title": "The Sign of Four",
+    "author": "Arthur Conan Doyle",
+    "edition_id": "OL32161407M",
+    "edition_title": "La Señal de los Cuatro",
+    "edition_language": "spa",
+    "first_publish_year": 1889,
+    "source_url": "https://openlibrary.org/books/OL32161407M"
+  },
+  {
+    "id": "OL16239762W",
+    "work_title": "Gone Girl",
+    "author": "Gillian Flynn",
+    "edition_id": "OL26758060M",
+    "edition_title": "Perdida",
+    "edition_language": "spa",
+    "first_publish_year": 2011,
+    "source_url": "https://openlibrary.org/books/OL26758060M"
+  },
+  {
+    "id": "OL471891W",
+    "work_title": "Crooked House",
+    "author": "Agatha Christie",
+    "edition_id": "OL9142153M",
+    "edition_title": "La casa torcida",
+    "edition_language": "spa",
+    "first_publish_year": 1949,
+    "source_url": "https://openlibrary.org/books/OL9142153M"
+  },
+  {
+    "id": "OL15400582W",
+    "work_title": "The Big Sleep",
+    "author": "Raymond Chandler",
+    "edition_id": "OL9117560M",
+    "edition_title": "El sueno eterno/ The Big Sleep (Biblioteca Chandler)",
+    "edition_language": "spa",
+    "first_publish_year": 1939,
+    "source_url": "https://openlibrary.org/books/OL9117560M"
+  },
+  {
+    "id": "OL66554W",
+    "work_title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "edition_id": "OL37079658M",
+    "edition_title": "Orgullo y Prejuicio",
+    "edition_language": "spa",
+    "first_publish_year": 1813,
+    "source_url": "https://openlibrary.org/books/OL37079658M"
+  },
+  {
+    "id": "OL18020194W",
+    "work_title": "It Ends With Us",
+    "author": "Colleen Hoover",
+    "edition_id": "OL38095018M",
+    "edition_title": "Romper el Círculo (It Ends with Us)",
+    "edition_language": "spa",
+    "first_publish_year": 2012,
+    "source_url": "https://openlibrary.org/books/OL38095018M"
+  },
+  {
+    "id": "OL24178205W",
+    "work_title": "The Love Hypothesis",
+    "author": "Ali Hazelwood",
+    "edition_id": "OL52455847M",
+    "edition_title": "La hipótesis del amor",
+    "edition_language": "spa",
+    "first_publish_year": 2021,
+    "source_url": "https://openlibrary.org/books/OL52455847M"
+  },
+  {
+    "id": "OL28353073W",
+    "work_title": "Me Before You",
+    "author": "Jojo Moyes",
+    "edition_id": "OL28831530M",
+    "edition_title": "Yo Antes de Ti ",
+    "edition_language": "spa",
+    "first_publish_year": 2012,
+    "source_url": "https://openlibrary.org/books/OL28831530M"
+  },
+  {
+    "id": "OL18203673W",
+    "work_title": "The Seven Husbands of Evelyn Hugo",
+    "author": "Taylor Jenkins Reid",
+    "edition_id": "OL30198475M",
+    "edition_title": "Los siete maridos de Evelyn Hugo",
+    "edition_language": "spa",
+    "first_publish_year": 2017,
+    "source_url": "https://openlibrary.org/books/OL30198475M"
+  },
+  {
+    "id": "OL20090688W",
+    "work_title": "Red, White & Royal Blue",
+    "author": "Casey McQuiston",
+    "edition_id": "OL36639394M",
+    "edition_title": "Rojo, blanco y sangre azul",
+    "edition_language": "spa",
+    "first_publish_year": 2019,
+    "source_url": "https://openlibrary.org/books/OL36639394M"
+  },
+  {
+    "id": "OL617847W",
+    "work_title": "El túnel",
+    "author": "Ernesto Sabato",
+    "edition_id": "OL40216772M",
+    "edition_title": "El túnel",
+    "edition_language": "spa",
+    "first_publish_year": 1948,
+    "source_url": "https://openlibrary.org/books/OL40216772M"
+  },
+  {
+    "id": "OL274518W",
+    "work_title": "El amor en los tiempos del cólera",
+    "author": "Gabriel García Márquez",
+    "edition_id": "OL39225070M",
+    "edition_title": "El amor en los tiempos del cólera",
+    "edition_language": "spa",
+    "first_publish_year": 1985,
+    "source_url": "https://openlibrary.org/books/OL39225070M"
+  },
+  {
+    "id": "OL1905255W",
+    "work_title": "La casa de los espíritus",
+    "author": "Isabel Allende",
+    "edition_id": "OL58656056M",
+    "edition_title": "La casa de los espíritus",
+    "edition_language": "spa",
+    "first_publish_year": 1982,
+    "source_url": "https://openlibrary.org/books/OL58656056M"
+  },
+  {
+    "id": "OL274574W",
+    "work_title": "Crónica de una muerte anunciada",
+    "author": "Gabriel García Márquez",
+    "edition_id": "OL58787733M",
+    "edition_title": "Crónica de una muerte anunciada",
+    "edition_language": "spa",
+    "first_publish_year": 1980,
+    "source_url": "https://openlibrary.org/books/OL58787733M"
+  },
+  {
+    "id": "OL503666W",
+    "work_title": "Don Quijote de la Mancha",
+    "author": "Miguel de Cervantes Saavedra",
+    "edition_id": "OL24343614M",
+    "edition_title": "El ingenioso hidalgo Don Quijote de la Mancha",
+    "edition_language": "spa",
+    "first_publish_year": 1600,
+    "source_url": "https://openlibrary.org/books/OL24343614M"
+  },
+  {
+    "id": "OL1731119W",
+    "work_title": "Pedro Páramo",
+    "author": "Juan Rulfo",
+    "edition_id": "OL21626163M",
+    "edition_title": "Pedro Páramo",
+    "edition_language": "spa",
+    "first_publish_year": 1955,
+    "source_url": "https://openlibrary.org/books/OL21626163M"
+  },
+  {
+    "id": "OL110971W",
+    "work_title": "Ficciones",
+    "author": "Jorge Luis Borges",
+    "edition_id": "OL47800257M",
+    "edition_title": "FICCIONES",
+    "edition_language": "spa",
+    "first_publish_year": 1945,
+    "source_url": "https://openlibrary.org/books/OL47800257M"
+  },
+  {
+    "id": "OL278437W",
+    "work_title": "La sombra del viento",
+    "author": "Carlos Ruiz Zafón",
+    "edition_id": "OL37070014M",
+    "edition_title": "La sombra del viento",
+    "edition_language": "spa",
+    "first_publish_year": 2001,
+    "source_url": "https://openlibrary.org/books/OL37070014M"
+  },
+  {
+    "id": "OL85892W",
+    "work_title": "Dracula",
+    "author": "Bram Stoker",
+    "edition_id": "OL28177146M",
+    "edition_title": "Drácula",
+    "edition_language": "spa",
+    "first_publish_year": 1897,
+    "source_url": "https://openlibrary.org/books/OL28177146M"
+  },
+  {
+    "id": "OL77826W",
+    "work_title": "Interview With the Vampire",
+    "author": "Anne Rice",
+    "edition_id": "OL9430619M",
+    "edition_title": "Entrevista con el Vampiro",
+    "edition_language": "spa",
+    "first_publish_year": 1672,
+    "source_url": "https://openlibrary.org/books/OL9430619M"
+  }
+]
