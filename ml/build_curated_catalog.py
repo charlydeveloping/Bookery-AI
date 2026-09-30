@@ -17,12 +17,20 @@ def build_catalog(annotations, sources):
     seen = set()
     for item in annotations:
         book_id = item["id"]
-        if book_id in seen or book_id not in source_by_id:
-            raise ValueError(f"Duplicate or missing source: {book_id}")
+        if book_id in seen:
+            raise ValueError(f"Duplicate annotation: {book_id}")
         seen.add(book_id)
-        source = source_by_id[book_id]
-        if source.get("edition_language") != "spa" or not source.get("edition_id"):
-            raise ValueError(f"Spanish edition missing: {book_id}")
+        source = source_by_id.get(book_id, {})
+        if source:
+            if source.get("edition_language") != "spa" or not source.get("edition_id"):
+                raise ValueError(f"Spanish edition missing: {book_id}")
+            metadata_source = "Open Library"
+        else:
+            source = {"author": item.get("author"), "first_publish_year": item.get("published_date"),
+                      "edition_id": item.get("edition_id"), "source_url": item.get("source_url")}
+            if not all((item.get("author"), item.get("source_url"), item.get("source_name"), item.get("edition_id"))):
+                raise ValueError(f"Source metadata missing: {book_id}")
+            metadata_source = item["source_name"]
         title = normalize_text(item.get("title"))
         author = normalize_text(source.get("author"))
         description = normalize_text(item.get("description"))
@@ -37,7 +45,9 @@ def build_catalog(annotations, sources):
                       "reference_aliases": aliases,
                       "published_date": source.get("first_publish_year"),
                       "edition_id": source["edition_id"], "source_url": source["source_url"],
+                      "metadata_source": metadata_source,
                       "description_origin": "redacción original para demostración académica",
+                      "reference_topics": [normalize_text(topic) for topic in item.get("reference_topics", [])],
                       "searchable_text": f"{title}. {author}. {', '.join(genres)}. {description}"})
     if not books:
         raise ValueError("Catalog cannot be empty")

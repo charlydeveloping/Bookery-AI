@@ -3,6 +3,7 @@ import httpx
 
 from backend.app.main import create_app
 from backend.app.llm import LLMExplainer
+from ml.dataset import referenced_book_ids
 from tests.test_core import RAW
 from ml.prepare_dataset import clean
 
@@ -12,8 +13,12 @@ class FakeSemantic:
         self.books = books
 
     def search(self, query, k=5, language=None, genre=None, author=None):
-        from ml.dataset import matches
-        return [(book, 0.8) for book in self.books if matches(book, language, genre, author)][:k]
+        from ml.dataset import matches, reference_genres
+        excluded = referenced_book_ids(query, self.books)
+        shared = reference_genres(self.books, excluded) if not genre else set()
+        return [(book, 0.8) for book in self.books
+                if book["id"] not in excluded and matches(book, language, genre, author)
+                and (not shared or any(value.casefold() in shared for value in book["genres"]))][:k]
 
 
 def test_api_end_to_end_contract():
@@ -63,3 +68,29 @@ def test_llm_rejects_unknown_book_and_uses_basic_explanation():
         assert payload["explanation_mode"] == "basic"
         assert [item["id"] for item in payload["recommendations"]] == ["a"]
         assert "similitud semántica" in payload["recommendations"][0]["reason"]
+
+
+def test_author_similarity_uses_catalog_topics_and_skips_llm():
+    books = clean(RAW)
+    books[0]["genres"] = ["Psicología", "Crecimiento personal"]
+    books[0]["title"] = "Inteligencia emocional"
+    books[0]["author"] = "Daniel Goleman"
+    books[0]["searchable_text"] = "Inteligencia emocional. Daniel Goleman. Psicología. Gestión emocional."
+    books.append({"id": "mre-1", "title": "Recupera tu mente, reconquista tu vida",
+                  "author": "Marian Rojas Estapé", "description": "Una guía sobre atención, emociones y bienestar personal.",
+                  "genres": ["Psicología", "Gestión emocional", "Crecimiento personal"],
+                  "reference_topics": ["atención", "gestión emocional", "bienestar"], "language": "es",
+                  "searchable_text": "Recupera tu mente. atención gestión emocional bienestar."})
+
+    class UnexpectedExplainer:
+        def explain(self, _query, _books):
+            raise AssertionError("Author reference explanations should use catalog evidence")
+
+    with TestClient(create_app(books, FakeSemantic(books), UnexpectedExplainer())) as client:
+        payload = client.post("/api/recommend", json={
+            "query": "Quiero leer algo parecido a los libros de Marian Rojas Estape", "language": "es"
+        }).json()
+        assert [item["id"] for item in payload["recommendations"]] == ["a"]
+        assert payload["explanation_mode"] == "reference"
+        assert "Psicología" in payload["recommendations"][0]["reason"]
+        assert "Marian Rojas Estapé" in payload["answer"]

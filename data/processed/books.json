@@ -1,5 +1,83 @@
 [
   {
+    "id": "MRE-CHQTPB",
+    "title": "Cómo hacer que te pasen cosas buenas",
+    "author": "Marian Rojas Estapé",
+    "description": "Una guía divulgativa sobre cómo comprender el cerebro, gestionar las emociones y orientar la atención hacia el presente, las metas personales y el bienestar.",
+    "genres": [
+      "Psicología",
+      "Gestión emocional",
+      "Crecimiento personal"
+    ],
+    "language": "es",
+    "reference_aliases": [],
+    "published_date": "2018",
+    "edition_id": "9788467053302",
+    "source_url": "https://www.planetadelibros.com/libro-como-hacer-que-te-pasen-cosas-buenas-edicion-especial/302877",
+    "metadata_source": "Editorial Planeta (Espasa)",
+    "description_origin": "redacción original para demostración académica",
+    "reference_topics": [
+      "gestión emocional",
+      "bienestar",
+      "ansiedad",
+      "autoconocimiento",
+      "hábitos saludables"
+    ],
+    "searchable_text": "Cómo hacer que te pasen cosas buenas. Marian Rojas Estapé. Psicología, Gestión emocional, Crecimiento personal. Una guía divulgativa sobre cómo comprender el cerebro, gestionar las emociones y orientar la atención hacia el presente, las metas personales y el bienestar."
+  },
+  {
+    "id": "MRE-EPTV",
+    "title": "Encuentra tu persona vitamina",
+    "author": "Marian Rojas Estapé",
+    "description": "Un libro de divulgación sobre apego, historia emocional y vínculos con familiares, amistades y pareja, explicado desde la psicología y la relación entre emociones y cuerpo.",
+    "genres": [
+      "Psicología",
+      "Relaciones personales",
+      "Crecimiento personal"
+    ],
+    "language": "es",
+    "reference_aliases": [],
+    "published_date": "2021",
+    "edition_id": "9788467062212",
+    "source_url": "https://www.planetadelibros.com/libro-encuentra-tu-persona-vitamina/329152",
+    "metadata_source": "Editorial Planeta (Espasa)",
+    "description_origin": "redacción original para demostración académica",
+    "reference_topics": [
+      "gestión emocional",
+      "bienestar",
+      "ansiedad",
+      "autoconocimiento",
+      "hábitos saludables"
+    ],
+    "searchable_text": "Encuentra tu persona vitamina. Marian Rojas Estapé. Psicología, Relaciones personales, Crecimiento personal. Un libro de divulgación sobre apego, historia emocional y vínculos con familiares, amistades y pareja, explicado desde la psicología y la relación entre emociones y cuerpo."
+  },
+  {
+    "id": "MRE-RMRTV",
+    "title": "Recupera tu mente, reconquista tu vida",
+    "author": "Marian Rojas Estapé",
+    "description": "Una explicación divulgativa sobre la atención en un entorno de distracciones, la búsqueda de recompensas inmediatas y herramientas para comprender y regular las emociones.",
+    "genres": [
+      "Psicología",
+      "Gestión emocional",
+      "Crecimiento personal"
+    ],
+    "language": "es",
+    "reference_aliases": [],
+    "published_date": "2024",
+    "edition_id": "9788467073799",
+    "source_url": "https://www.planetadelibros.com/libro-recupera-tu-mente-reconquista-tu-vida/383546",
+    "metadata_source": "Editorial Planeta (Espasa)",
+    "description_origin": "redacción original para demostración académica",
+    "reference_topics": [
+      "gestión emocional",
+      "bienestar",
+      "ansiedad",
+      "atención",
+      "autoconocimiento"
+    ],
+    "searchable_text": "Recupera tu mente, reconquista tu vida. Marian Rojas Estapé. Psicología, Gestión emocional, Crecimiento personal. Una explicación divulgativa sobre la atención en un entorno de distracciones, la búsqueda de recompensas inmediatas y herramientas para comprender y regular las emociones."
+  },
+  {
     "id": "OL103134W",
     "title": "Crónicas marcianas",
     "author": "Ray Bradbury",
@@ -13,7 +91,9 @@
     "published_date": 1950,
     "edition_id": "OL45645957M",
     "source_url": "https://openlibrary.org/books/OL45645957M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Crónicas marcianas. Ray Bradbury. Ciencia ficción, Relatos. Una serie de relatos imagina expediciones y asentamientos humanos en Marte. El encuentro con el planeta sirve para hablar de colonización, memoria y soledad."
   },
   {
@@ -30,7 +110,9 @@
     "published_date": 1961,
     "edition_id": "OL26778073M",
     "source_url": "https://openlibrary.org/books/OL26778073M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Solaris. Stanisław Lem. Ciencia ficción, Misterio. Un psicólogo llega a una estación espacial que estudia un planeta cubierto por un océano enigmático. Las apariciones que encuentra obligan a los investigadores a enfrentar sus recuerdos."
   },
   {
@@ -47,7 +129,9 @@
     "published_date": 1945,
     "edition_id": "OL47800257M",
     "source_url": "https://openlibrary.org/books/OL47800257M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Ficciones. Jorge Luis Borges. Literatura latinoamericana, Relatos. Esta colección de relatos explora bibliotecas, laberintos, libros imaginarios y realidades alternativas. Cada historia convierte una idea filosófica en un enigma narrativo."
   },
   {
@@ -64,7 +148,9 @@
     "published_date": 1945,
     "edition_id": "OL25874368M",
     "source_url": "https://openlibrary.org/books/OL25874368M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Rebelión en la granja. George Orwell. Distopía, Sátira. Los animales de una granja expulsan a su dueño para organizar una comunidad más justa. Con el tiempo, el poder se concentra y los ideales iniciales se deforman."
   },
   {
@@ -81,7 +167,9 @@
     "published_date": 1939,
     "edition_id": "OL9117560M",
     "source_url": "https://openlibrary.org/books/OL9117560M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "El sueño eterno. Raymond Chandler. Misterio, Novela negra. El detective Philip Marlowe recibe un encargo de una familia adinerada. Su investigación lo introduce en una red de chantajes, secretos y violencia en Los Ángeles."
   },
   {
@@ -98,7 +186,9 @@
     "published_date": 2011,
     "edition_id": "OL26758060M",
     "source_url": "https://openlibrary.org/books/OL26758060M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Perdida. Gillian Flynn. Misterio, Suspenso. La desaparición de una mujer coloca a su esposo bajo sospecha y atrae la atención de los medios. Versiones enfrentadas de la relación convierten la búsqueda en un juego de apariencias."
   },
   {
@@ -115,8 +205,30 @@
     "published_date": 1955,
     "edition_id": "OL21626163M",
     "source_url": "https://openlibrary.org/books/OL21626163M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Pedro Páramo. Juan Rulfo. Literatura latinoamericana, Realismo mágico. Juan Preciado llega a Comala para buscar a su padre. En el pueblo escucha voces y recuerdos que revelan una historia de poder, muerte y abandono."
+  },
+  {
+    "id": "OL17930368W",
+    "title": "Hábitos atómicos",
+    "author": "James Clear",
+    "description": "James Clear propone cambios pequeños y sistemas cotidianos para construir hábitos, reducir conductas no deseadas y sostener mejoras a largo plazo.",
+    "genres": [
+      "Crecimiento personal",
+      "Hábitos saludables",
+      "Psicología"
+    ],
+    "language": "es",
+    "reference_aliases": [],
+    "published_date": 2016,
+    "edition_id": "OL51155019M",
+    "source_url": "https://openlibrary.org/books/OL51155019M",
+    "metadata_source": "Open Library",
+    "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
+    "searchable_text": "Hábitos atómicos. James Clear. Crecimiento personal, Hábitos saludables, Psicología. James Clear propone cambios pequeños y sistemas cotidianos para construir hábitos, reducir conductas no deseadas y sostener mejoras a largo plazo."
   },
   {
     "id": "OL18020194W",
@@ -132,7 +244,9 @@
     "published_date": 2012,
     "edition_id": "OL38095018M",
     "source_url": "https://openlibrary.org/books/OL38095018M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Romper el círculo. Colleen Hoover. Romance, Drama. Lily intenta construir una nueva vida mientras una relación amorosa la enfrenta a recuerdos familiares dolorosos. La novela aborda decisiones difíciles y patrones de violencia."
   },
   {
@@ -149,8 +263,30 @@
     "published_date": 2017,
     "edition_id": "OL30198475M",
     "source_url": "https://openlibrary.org/books/OL30198475M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Los siete maridos de Evelyn Hugo. Taylor Jenkins Reid. Drama, Romance. Una antigua estrella de cine decide contar su vida a una periodista. Su relato recorre matrimonios, ambición, fama y un amor que mantuvo fuera de la mirada pública."
+  },
+  {
+    "id": "OL1878267W",
+    "title": "Inteligencia emocional",
+    "author": "Daniel Goleman",
+    "description": "Daniel Goleman explica habilidades emocionales como reconocer los propios sentimientos, regular impulsos y comprender a otras personas, y su papel en la vida cotidiana.",
+    "genres": [
+      "Psicología",
+      "Gestión emocional",
+      "Crecimiento personal"
+    ],
+    "language": "es",
+    "reference_aliases": [],
+    "published_date": 1995,
+    "edition_id": "OL26313535M",
+    "source_url": "https://openlibrary.org/books/OL26313535M",
+    "metadata_source": "Open Library",
+    "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
+    "searchable_text": "Inteligencia emocional. Daniel Goleman. Psicología, Gestión emocional, Crecimiento personal. Daniel Goleman explica habilidades emocionales como reconocer los propios sentimientos, regular impulsos y comprender a otras personas, y su papel en la vida cotidiana."
   },
   {
     "id": "OL1905255W",
@@ -166,8 +302,50 @@
     "published_date": 1982,
     "edition_id": "OL58656056M",
     "source_url": "https://openlibrary.org/books/OL58656056M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "La casa de los espíritus. Isabel Allende. Literatura latinoamericana, Realismo mágico. La historia de varias generaciones de una familia se entrelaza con cambios políticos y sociales. Recuerdos, conflictos y hechos extraordinarios conviven en la narración."
+  },
+  {
+    "id": "OL19744000W",
+    "title": "Atrévete a no gustar",
+    "author": "Ichirō Kishimi",
+    "description": "Un diálogo divulgativo introduce ideas de la psicología adleriana sobre autoestima, libertad personal, responsabilidad y relaciones con los demás.",
+    "genres": [
+      "Psicología",
+      "Relaciones personales",
+      "Crecimiento personal"
+    ],
+    "language": "es",
+    "reference_aliases": [],
+    "published_date": 2013,
+    "edition_id": "OL47157200M",
+    "source_url": "https://openlibrary.org/books/OL47157200M",
+    "metadata_source": "Open Library",
+    "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
+    "searchable_text": "Atrévete a no gustar. Ichirō Kishimi. Psicología, Relaciones personales, Crecimiento personal. Un diálogo divulgativo introduce ideas de la psicología adleriana sobre autoestima, libertad personal, responsabilidad y relaciones con los demás."
+  },
+  {
+    "id": "OL2003465W",
+    "title": "Mindset: la actitud del éxito",
+    "author": "Carol S. Dweck",
+    "description": "Carol Dweck presenta cómo las creencias sobre la capacidad y el aprendizaje influyen en la manera de afrontar errores, esfuerzo, metas y desarrollo personal.",
+    "genres": [
+      "Psicología",
+      "Crecimiento personal",
+      "Aprendizaje"
+    ],
+    "language": "es",
+    "reference_aliases": [],
+    "published_date": 2006,
+    "edition_id": "OL27234127M",
+    "source_url": "https://openlibrary.org/books/OL27234127M",
+    "metadata_source": "Open Library",
+    "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
+    "searchable_text": "Mindset: la actitud del éxito. Carol S. Dweck. Psicología, Crecimiento personal, Aprendizaje. Carol Dweck presenta cómo las creencias sobre la capacidad y el aprendizaje influyen en la manera de afrontar errores, esfuerzo, metas y desarrollo personal."
   },
   {
     "id": "OL20090688W",
@@ -183,8 +361,30 @@
     "published_date": 2019,
     "edition_id": "OL36639394M",
     "source_url": "https://openlibrary.org/books/OL36639394M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Rojo, blanco y sangre azul. Casey McQuiston. Romance, Comedia. El hijo de una presidenta estadounidense y un príncipe británico pasan de la rivalidad pública a una relación cercana. Ambos deben conciliar sus sentimientos con las expectativas políticas."
+  },
+  {
+    "id": "OL21237606W",
+    "title": "Piensa como un monje",
+    "author": "Jay Shetty",
+    "description": "Jay Shetty adapta prácticas de atención y reflexión para explorar el propósito, los hábitos mentales y la manera de relacionarse con otras personas.",
+    "genres": [
+      "Crecimiento personal",
+      "Bienestar emocional",
+      "Atención plena"
+    ],
+    "language": "es",
+    "reference_aliases": [],
+    "published_date": 2020,
+    "edition_id": "OL47548584M",
+    "source_url": "https://openlibrary.org/books/OL47548584M",
+    "metadata_source": "Open Library",
+    "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
+    "searchable_text": "Piensa como un monje. Jay Shetty. Crecimiento personal, Bienestar emocional, Atención plena. Jay Shetty adapta prácticas de atención y reflexión para explorar el propósito, los hábitos mentales y la manera de relacionarse con otras personas."
   },
   {
     "id": "OL21745884W",
@@ -200,7 +400,9 @@
     "published_date": 2021,
     "edition_id": "OL32849663M",
     "source_url": "https://openlibrary.org/books/OL32849663M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Proyecto Hail Mary. Andy Weir. Ciencia ficción, Aventura. Un astronauta despierta solo en una nave sin recordar el propósito de su misión. Mediante experimentos y cooperación, intenta resolver una amenaza para la vida en la Tierra."
   },
   {
@@ -217,7 +419,9 @@
     "published_date": 2021,
     "edition_id": "OL52455847M",
     "source_url": "https://openlibrary.org/books/OL52455847M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "La hipótesis del amor. Ali Hazelwood. Romance, Comedia. Una doctoranda inicia una relación fingida con un profesor para convencer a una amiga. El acuerdo altera su vida académica y sus sentimientos de maneras imprevistas."
   },
   {
@@ -234,8 +438,30 @@
     "published_date": 2021,
     "edition_id": "OL36634839M",
     "source_url": "https://openlibrary.org/books/OL36634839M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Érase una vez un corazón roto. Stephanie Garber. Fantasía, Romance. Evangeline busca impedir la boda del hombre que ama y hace un trato con una figura mágica. Su decisión la conduce a un mundo de pactos, deseos y consecuencias inesperadas."
+  },
+  {
+    "id": "OL25436364W",
+    "title": "La montaña eres tú",
+    "author": "Brianna Wiest",
+    "description": "Brianna Wiest aborda el autosabotaje y los patrones emocionales que dificultan el cambio, y plantea la reflexión personal como parte de la transformación.",
+    "genres": [
+      "Crecimiento personal",
+      "Bienestar emocional",
+      "Psicología"
+    ],
+    "language": "es",
+    "reference_aliases": [],
+    "published_date": 2020,
+    "edition_id": "OL61370328M",
+    "source_url": "https://openlibrary.org/books/OL61370328M",
+    "metadata_source": "Open Library",
+    "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
+    "searchable_text": "La montaña eres tú. Brianna Wiest. Crecimiento personal, Bienestar emocional, Psicología. Brianna Wiest aborda el autosabotaje y los patrones emocionales que dificultan el cambio, y plantea la reflexión personal como parte de la transformación."
   },
   {
     "id": "OL2577482W",
@@ -251,7 +477,9 @@
     "published_date": 1993,
     "edition_id": "OL25838520M",
     "source_url": "https://openlibrary.org/books/OL25838520M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "El último deseo. Andrzej Sapkowski. Fantasía, Aventura. Geralt de Rivia, cazador de monstruos, recorre un mundo de magia y conflictos humanos. Los relatos reinterpretan cuentos tradicionales y exploran decisiones morales difíciles."
   },
   {
@@ -268,7 +496,9 @@
     "published_date": 1892,
     "edition_id": "OL35676334M",
     "source_url": "https://openlibrary.org/books/OL35676334M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Las aventuras de Sherlock Holmes. Arthur Conan Doyle. Misterio, Relatos. Sherlock Holmes y el doctor Watson resuelven casos mediante observación y razonamiento. La colección reúne enigmas criminales y situaciones extrañas en la Inglaterra victoriana."
   },
   {
@@ -285,8 +515,30 @@
     "published_date": 1889,
     "edition_id": "OL32161407M",
     "source_url": "https://openlibrary.org/books/OL32161407M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "El signo de los cuatro. Arthur Conan Doyle. Misterio, Policial. Sherlock Holmes investiga una desaparición relacionada con un tesoro y un antiguo pacto. Las pistas conducen a una persecución por Londres y a hechos ocurridos años atrás."
+  },
+  {
+    "id": "OL27203W",
+    "title": "Los cuatro acuerdos",
+    "author": "Don Miguel Ruiz",
+    "description": "Don Miguel Ruiz organiza su propuesta de desarrollo personal en cuatro principios para revisar las palabras, las interpretaciones, los supuestos y los compromisos.",
+    "genres": [
+      "Crecimiento personal",
+      "Relaciones personales",
+      "Bienestar emocional"
+    ],
+    "language": "es",
+    "reference_aliases": [],
+    "published_date": 1997,
+    "edition_id": "OL40412M",
+    "source_url": "https://openlibrary.org/books/OL40412M",
+    "metadata_source": "Open Library",
+    "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
+    "searchable_text": "Los cuatro acuerdos. Don Miguel Ruiz. Crecimiento personal, Relaciones personales, Bienestar emocional. Don Miguel Ruiz organiza su propuesta de desarrollo personal en cuatro principios para revisar las palabras, las interpretaciones, los supuestos y los compromisos."
   },
   {
     "id": "OL274518W",
@@ -302,7 +554,9 @@
     "published_date": 1985,
     "edition_id": "OL39225070M",
     "source_url": "https://openlibrary.org/books/OL39225070M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "El amor en los tiempos del cólera. Gabriel García Márquez. Literatura latinoamericana, Romance. Florentino Ariza mantiene durante décadas la esperanza de reencontrarse con Fermina Daza. La novela sigue sus vidas y distintas formas de amor a través del tiempo."
   },
   {
@@ -319,7 +573,9 @@
     "published_date": 1980,
     "edition_id": "OL58787733M",
     "source_url": "https://openlibrary.org/books/OL58787733M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Crónica de una muerte anunciada. Gabriel García Márquez. Literatura latinoamericana, Misterio. Un pueblo conoce con anticipación la intención de matar a Santiago Nasar. La narración reconstruye testimonios y coincidencias para entender por qué nadie detuvo el crimen."
   },
   {
@@ -336,7 +592,9 @@
     "published_date": 1937,
     "edition_id": "OL13268284M",
     "source_url": "https://openlibrary.org/books/OL13268284M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "El hobbit. J.R.R. Tolkien. Fantasía, Aventura. Bilbo Bolsón abandona la comodidad de su hogar para acompañar a un grupo de enanos. El viaje reúne criaturas fantásticas, acertijos, peligros y la búsqueda de un tesoro custodiado por un dragón."
   },
   {
@@ -353,8 +611,30 @@
     "published_date": 1954,
     "edition_id": "OL9131874M",
     "source_url": "https://openlibrary.org/books/OL9131874M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "La comunidad del anillo. J.R.R. Tolkien. Fantasía, Aventura. Frodo recibe la misión de llevar un anillo peligroso lejos de la Comarca. Una comunidad de viajeros atraviesa territorios amenazados por fuerzas oscuras mientras intenta protegerlo."
+  },
+  {
+    "id": "OL2764952W",
+    "title": "El amor a sí mismo",
+    "author": "Matthew McKay",
+    "description": "Una guía práctica sobre autoestima que trabaja la autocrítica, la aceptación personal y formas de responder a pensamientos y hábitos que afectan el bienestar.",
+    "genres": [
+      "Psicología",
+      "Autoestima",
+      "Relaciones personales"
+    ],
+    "language": "es",
+    "reference_aliases": [],
+    "published_date": 1986,
+    "edition_id": "OL22925761M",
+    "source_url": "https://openlibrary.org/books/OL22925761M",
+    "metadata_source": "Open Library",
+    "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
+    "searchable_text": "El amor a sí mismo. Matthew McKay. Psicología, Autoestima, Relaciones personales. Una guía práctica sobre autoestima que trabaja la autocrítica, la aceptación personal y formas de responder a pensamientos y hábitos que afectan el bienestar."
   },
   {
     "id": "OL278437W",
@@ -370,7 +650,9 @@
     "published_date": 2001,
     "edition_id": "OL37070014M",
     "source_url": "https://openlibrary.org/books/OL37070014M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "La sombra del viento. Carlos Ruiz Zafón. Misterio, Literatura española. Un joven encuentra un libro en el Cementerio de los Libros Olvidados y busca saber más sobre su autor. La investigación revela secretos de la Barcelona de posguerra."
   },
   {
@@ -387,7 +669,9 @@
     "published_date": 2012,
     "edition_id": "OL28831530M",
     "source_url": "https://openlibrary.org/books/OL28831530M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Yo antes de ti. Jojo Moyes. Romance, Drama. Louisa acepta cuidar a Will, un hombre cuya vida cambió tras un accidente. La convivencia los lleva a reconsiderar sus planes, expectativas y vínculos personales."
   },
   {
@@ -404,7 +688,9 @@
     "published_date": 1818,
     "edition_id": "OL32100382M",
     "source_url": "https://openlibrary.org/books/OL32100382M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Frankenstein o el moderno Prometeo. Mary Shelley. Ciencia ficción, Terror. Un científico crea un ser vivo y luego rechaza su propia obra. La criatura busca comprensión mientras la novela examina la responsabilidad del creador y el aislamiento."
   },
   {
@@ -421,7 +707,9 @@
     "published_date": 1988,
     "edition_id": "OL39472960M",
     "source_url": "https://openlibrary.org/books/OL39472960M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Matilda. Roald Dahl. Fantasía, Literatura infantil. Una niña apasionada por los libros descubre capacidades extraordinarias. Con ingenio y el apoyo de su maestra, enfrenta a adultos que no comprenden su inteligencia."
   },
   {
@@ -438,7 +726,9 @@
     "published_date": 1951,
     "edition_id": "OL50522332M",
     "source_url": "https://openlibrary.org/books/OL50522332M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Fundación. Isaac Asimov. Ciencia ficción, Política. Un matemático prevé la caída de un imperio galáctico y propone preservar el conocimiento humano. La historia sigue crisis políticas y científicas a lo largo de generaciones."
   },
   {
@@ -455,7 +745,9 @@
     "published_date": 1933,
     "edition_id": "OL9142141M",
     "source_url": "https://openlibrary.org/books/OL9142141M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Asesinato en el Orient Express. Agatha Christie. Misterio, Policial. Un pasajero aparece muerto a bordo de un tren detenido por la nieve. Hércules Poirot interroga a los viajeros y reconstruye las pistas de un crimen aparentemente imposible."
   },
   {
@@ -472,7 +764,9 @@
     "published_date": 1949,
     "edition_id": "OL9142153M",
     "source_url": "https://openlibrary.org/books/OL9142153M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "La casa torcida. Agatha Christie. Misterio, Policial. Una muerte sospechosa sacude a una familia que comparte una gran casa. La investigación revela tensiones entre parientes y pone en duda las primeras explicaciones."
   },
   {
@@ -489,7 +783,9 @@
     "published_date": 1926,
     "edition_id": "OL9889988M",
     "source_url": "https://openlibrary.org/books/OL9889988M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "El asesinato de Roger Ackroyd. Agatha Christie. Misterio, Policial. La muerte de un hombre en una localidad inglesa lleva a Hércules Poirot a investigar secretos y testimonios contradictorios. Cada detalle de la narración puede cambiar la solución."
   },
   {
@@ -506,7 +802,9 @@
     "published_date": 2005,
     "edition_id": "OL25440625M",
     "source_url": "https://openlibrary.org/books/OL25440625M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "El ladrón del rayo. Rick Riordan. Fantasía, Aventura juvenil. Percy Jackson descubre su vínculo con los dioses griegos y emprende una misión para evitar un conflicto entre ellos. La aventura mezcla mitología, amistad y peligros en el mundo contemporáneo."
   },
   {
@@ -523,7 +821,9 @@
     "published_date": 1600,
     "edition_id": "OL24343614M",
     "source_url": "https://openlibrary.org/books/OL24343614M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Don Quijote de la Mancha. Miguel de Cervantes Saavedra. Clásico, Aventura. Un hidalgo fascinado por los libros de caballerías sale de viaje con Sancho Panza. Sus aventuras mezclan imaginación, humor y una mirada crítica a la realidad."
   },
   {
@@ -540,7 +840,9 @@
     "published_date": 1895,
     "edition_id": "OL39200420M",
     "source_url": "https://openlibrary.org/books/OL39200420M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "La máquina del tiempo. H. G. Wells. Ciencia ficción, Aventura. Un inventor viaja a un futuro lejano mediante una máquina de su creación. Allí observa una humanidad dividida y descubre las consecuencias de una larga evolución social."
   },
   {
@@ -557,7 +859,9 @@
     "published_date": 2005,
     "edition_id": "OL28345195M",
     "source_url": "https://openlibrary.org/books/OL28345195M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Elantris. Brandon Sanderson. Fantasía, Misterio. Una antigua ciudad de seres poderosos ha caído en desgracia. Un príncipe y una princesa intentan comprender la transformación de sus habitantes mientras enfrentan intrigas políticas y religiosas."
   },
   {
@@ -574,7 +878,9 @@
     "published_date": 1948,
     "edition_id": "OL40216772M",
     "source_url": "https://openlibrary.org/books/OL40216772M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "El túnel. Ernesto Sabato. Literatura latinoamericana, Psicológica. Un pintor narra su obsesión por una mujer que cree capaz de comprenderlo. Su mirada cada vez más aislada conduce a una historia de celos y violencia."
   },
   {
@@ -591,7 +897,9 @@
     "published_date": 1932,
     "edition_id": "OL26426664M",
     "source_url": "https://openlibrary.org/books/OL26426664M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Un mundo feliz. Aldous Huxley. Ciencia ficción, Distopía. Una sociedad controla la reproducción, el consumo y las emociones para mantener la estabilidad. Varios personajes cuestionan el costo humano de ese orden aparentemente perfecto."
   },
   {
@@ -608,7 +916,9 @@
     "published_date": 1813,
     "edition_id": "OL37079658M",
     "source_url": "https://openlibrary.org/books/OL37079658M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Orgullo y prejuicio. Jane Austen. Romance, Clásico. Elizabeth Bennet y Fitzwilliam Darcy se conocen en una sociedad marcada por el matrimonio y la posición social. Sus primeras impresiones y prejuicios complican una posible relación."
   },
   {
@@ -625,7 +935,9 @@
     "published_date": 1911,
     "edition_id": "OL799594M",
     "source_url": "https://openlibrary.org/books/OL799594M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "El jardín secreto. Frances Hodgson Burnett. Literatura infantil, Aventura. Mary llega a una casa aislada y descubre un jardín abandonado. Al cuidarlo junto con nuevos amigos, transforma su relación con el lugar y con las personas que la rodean."
   },
   {
@@ -642,7 +954,9 @@
     "published_date": 1672,
     "edition_id": "OL9430619M",
     "source_url": "https://openlibrary.org/books/OL9430619M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Entrevista con el vampiro. Anne Rice. Terror, Fantasía. Un vampiro cuenta a un periodista los episodios centrales de su larga existencia. Su relato explora la inmortalidad, la pérdida y los conflictos entre seres sobrenaturales."
   },
   {
@@ -659,7 +973,9 @@
     "published_date": 1990,
     "edition_id": "OL47660205M",
     "source_url": "https://openlibrary.org/books/OL47660205M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "El ojo del mundo. Robert Jordan. Fantasía, Aventura. Un grupo de jóvenes abandona su aldea después de un ataque inesperado. Su viaje revela antiguas profecías, magia y la amenaza de una fuerza oscura que busca cambiar el destino del mundo."
   },
   {
@@ -678,7 +994,9 @@
     "published_date": 1997,
     "edition_id": "OL38565767M",
     "source_url": "https://openlibrary.org/books/OL38565767M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Harry Potter y la piedra filosofal. J. K. Rowling. Fantasía, Aventura juvenil. Harry descubre que es mago y comienza sus estudios en Hogwarts. Entre clases, amistades y secretos del castillo, investiga un misterio relacionado con una piedra de gran poder."
   },
   {
@@ -695,7 +1013,9 @@
     "published_date": 1897,
     "edition_id": "OL28177146M",
     "source_url": "https://openlibrary.org/books/OL28177146M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Drácula. Bram Stoker. Terror, Clásico. Un conde de Transilvania lleva su amenaza a Inglaterra. Un grupo de personas reúne diarios y cartas para comprender su naturaleza y detenerlo."
   },
   {
@@ -712,7 +1032,9 @@
     "published_date": 1965,
     "edition_id": "OL47345006M",
     "source_url": "https://openlibrary.org/books/OL47345006M",
+    "metadata_source": "Open Library",
     "description_origin": "redacción original para demostración académica",
+    "reference_topics": [],
     "searchable_text": "Duna. Frank Herbert. Ciencia ficción, Aventura. Paul Atreides llega a un planeta desértico codiciado por un recurso indispensable. Las rivalidades entre casas, la ecología del desierto y las profecías marcan su destino."
   }
 ]

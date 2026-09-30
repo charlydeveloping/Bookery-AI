@@ -418,5 +418,85 @@
     "edition_language": "spa",
     "first_publish_year": 1672,
     "source_url": "https://openlibrary.org/books/OL9430619M"
+  },
+  {
+    "id": "OL17930368W",
+    "work_title": "Atomic Habits",
+    "author": "James Clear",
+    "edition_id": "OL51155019M",
+    "edition_title": "Hábitos Atómicos",
+    "edition_language": "spa",
+    "first_publish_year": 2016,
+    "source_url": "https://openlibrary.org/books/OL51155019M"
+  },
+  {
+    "id": "OL25436364W",
+    "work_title": "The Mountain Is You",
+    "author": "Brianna Wiest",
+    "edition_id": "OL61370328M",
+    "edition_title": "La montaña eres tú",
+    "edition_language": "spa",
+    "first_publish_year": 2020,
+    "source_url": "https://openlibrary.org/books/OL61370328M"
+  },
+  {
+    "id": "OL19744000W",
+    "work_title": "嫌われる勇気",
+    "author": "Ichirō Kishimi",
+    "edition_id": "OL47157200M",
+    "edition_title": "Atrévete a no gustar",
+    "edition_language": "spa",
+    "first_publish_year": 2013,
+    "source_url": "https://openlibrary.org/books/OL47157200M"
+  },
+  {
+    "id": "OL21237606W",
+    "work_title": "Think Like a Monk",
+    "author": "Jay Shetty",
+    "edition_id": "OL47548584M",
+    "edition_title": "Piensa como un monje",
+    "edition_language": "spa",
+    "first_publish_year": 2020,
+    "source_url": "https://openlibrary.org/books/OL47548584M"
+  },
+  {
+    "id": "OL1878267W",
+    "work_title": "Emotional Intelligence",
+    "author": "Daniel Goleman",
+    "edition_id": "OL26313535M",
+    "edition_title": "Inteligencia emocional",
+    "edition_language": "spa",
+    "first_publish_year": 1995,
+    "source_url": "https://openlibrary.org/books/OL26313535M"
+  },
+  {
+    "id": "OL2003465W",
+    "work_title": "Mindset",
+    "author": "Carol S. Dweck",
+    "edition_id": "OL27234127M",
+    "edition_title": "Mindset",
+    "edition_language": "spa",
+    "first_publish_year": 2006,
+    "source_url": "https://openlibrary.org/books/OL27234127M"
+  },
+  {
+    "id": "OL2764952W",
+    "work_title": "Self-esteem",
+    "author": "Matthew McKay",
+    "edition_id": "OL22925761M",
+    "edition_title": "El amor a sí mismo",
+    "edition_language": "spa",
+    "first_publish_year": 1986,
+    "source_url": "https://openlibrary.org/books/OL22925761M"
+  },
+  {
+    "id": "OL27203W",
+    "work_title": "The Four Agreements",
+    "author": "Don Miguel Ruiz",
+    "edition_id": "OL40412M",
+    "edition_title": "Los cuatro acuerdos",
+    "edition_language": "spa",
+    "first_publish_year": 1997,
+    "source_url": "https://openlibrary.org/books/OL40412M"
   }
 ]
