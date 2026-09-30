@@ -6,11 +6,11 @@
 4. **Modelo propuesto:** modelo preentrenado, dimensión, coseno e índice exacto.
 5. **Métricas:** nDCG@5, Precision@5, cumplimiento y latencia.
 6. **Estrategia de validación:** consultas separadas, anotación humana graduada, mismos filtros y catálogo.
-7. **Resultados:** insertar únicamente la tabla generada por `python -m ml.evaluate`.
+7. **Resultados:** usar únicamente la tabla final `results/evaluation_reviewed.csv`; conservar `results/evaluation.csv` como piloto identificado.
 8. **Arquitectura:** diagrama de preparación, recuperadores, API y Nuxt.
 9. **Interfaz:** captura del formulario y tarjetas; comparación visual de métodos.
 10. **Pruebas:** caso válido, consulta semántica difícil, entrada vacía y contrato HTTP.
 11. **Análisis de errores:** consultas con vocabulario divergente, descripciones pobres, categorías ruidosas.
 12. **Limitaciones:** cobertura y sesgo del catálogo, etiquetas humanas, idioma y latencia en CPU.
-13. **Conclusiones:** responder la pregunta experimental solo cuando existan juicios y resultados reales.
+13. **Conclusiones:** semántica mejoró nDCG@5 en estas nueve consultas; BM25 tuvo Precision@5 ligeramente mayor. No extrapolar fuera de este catálogo.
 14. **Referencias:** enlaces primarios del README y bibliografía de BM25 y Sentence Transformers.

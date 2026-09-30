@@ -2,7 +2,7 @@
 
 Proyecto final de Machine Learning: recomendación de libros mediante una interfaz conversacional sencilla. La pregunta principal es: **¿la recuperación semántica mediante embeddings mejora el ranking de libros frente a BM25 para consultas conversacionales con preferencias explícitas?** Este módulo responde a la función de recomendaciones planteada para Todo Libros en el proyecto de grado; la integración con inventario y ventas queda fuera del alcance de esta entrega académica.
 
-Bookery AI usa el **mismo catálogo** para ambos métodos. El backend devuelve exclusivamente títulos existentes en ese catálogo. Opcionalmente, un LLM redacta una explicación breve para cada libro recuperado por el método semántico. El frontend permite alternar el método para la demostración.
+Bookery AI usa el **mismo catálogo** para ambos métodos. El backend devuelve exclusivamente títulos existentes en ese catálogo. Opcionalmente, un LLM redacta una explicación breve para cada libro recuperado por el método semántico. El frontend abre con el método semántico evaluado y permite alternar a BM25 o a Semántico + Jev para explorar.
 
 ## Arquitectura
 
@@ -53,6 +53,13 @@ Para explorar el catálogo en la interfaz, pruebe «Quiero leer algo parecido a 
 
 Las preguntas por un título específico («¿tienen el libro X?», «¿de qué trata X?», «¿quién escribió X?») consultan la ficha del catálogo sin llamar al LLM. Una ficha encontrada **no confirma existencias en la librería**. Un título ausente se informa como desconocido. «¿Tienen algún libro similar a X?» se interpreta como petición de similitud; si X no tiene ficha de referencia, se responde que no hay evidencia suficiente y no se muestran coincidencias accidentales. «Libros de [autor registrado]» lista sus obras del catálogo. Las peticiones generales, como «quiero ciencia ficción», siguen usando el método de recuperación seleccionado. Estas reglas cubren las formas documentadas; otras redacciones ambiguas pueden requerir aclaración o una ficha adicional.
 
+### Selección semántica + Jev
+
+El modo **Semántico + Jev** recupera primero hasta cinco libros del catálogo y pide a Jev elegir el más indicado entre esos IDs, con una opción `ninguno`. La interfaz destaca el elegido y muestra los demás como alternativas. Jev no genera títulos ni explicaciones: las fichas siguen viniendo del catálogo y el LLM opcional continúa redactando motivos. Si Jev no está configurado, responde con error, elige `ninguno` o tiene baja confianza, se conserva el orden semántico y la interfaz lo indica.
+
+Para activarlo, configure `TYPESAFE_API_KEY` en `.env` (y, si desea, `BOOKERY_JEV_MODEL`; el valor predeterminado es `jev-latest`). La ruta es `POST /api/recommend/jev` y acepta el mismo cuerpo que `/api/recommend`. La clave se usa solo desde el backend. La selección de Jev cambia el orden final y debe evaluarse por separado de BM25 y el recuperador semántico para sacar conclusiones académicas.
+
+
 ### Activar explicaciones con LLM
 
 La aplicación funciona sin clave: presenta explicaciones básicas. Para usar un proveedor compatible con [Chat Completions y JSON mode](https://developers.openai.com/api/docs/guides/structured-outputs), copie `.env.example` a `.env`, configure modelo y clave y reinicie el backend. El backend **sí carga `.env` automáticamente**. También puede exportar las variables antes de iniciarlo:
@@ -76,10 +83,16 @@ docker compose up --build
 
 ## Evaluación
 
-`data/evaluation/queries.json` contiene nueve consultas piloto en español con relevancias graduadas 0–3, redactadas y etiquetadas a partir de las fichas **antes de medir los rankings**. Incluye consultas por título y por autor. Son etiquetas preliminares propuestas por el asistente, no juicios humanos independientes; por ello, las cifras son exploratorias. Antes de la defensa, una persona debe revisar las etiquetas y juzgar candidatos de ambos métodos sin conocer su procedencia. Congele entonces ese conjunto y no lo use para ajustar parámetros. Los libros no anotados se tratan como relevancia 0, lo que puede subestimar ambos métodos.
+### Calificación humana desde la web
+
+Con el backend y el frontend iniciados, abra `http://localhost:3000` y pulse **Evaluar**. Seleccione la primera consulta, lea cada ficha y asigne una nota a **todos** los libros: `0` no encaja, `1` poco, `2` bien, `3` muy bien. Los candidatos son la unión sin duplicados de los cinco primeros resultados de BM25 y semántica; aparecen ordenados por título, sin indicar su procedencia. Pulse **Guardar notas de esta consulta** y continúe con las demás. Puede cerrar y volver a abrir la página: las notas guardadas permanecen en `data/evaluation/reviewed_queries.json`. Una nota `0` también debe guardarse; «Sin calificar» significa que aún falta revisar ese libro.
+
+Al completar las nueve consultas, pulse **Calcular comparación final**. El backend comprueba que todas las recomendaciones actuales tengan nota, calcula ambas métricas y escribe `results/evaluation_reviewed.csv`. Ese archivo y `reviewed_queries.json` son los entregables de la revisión humana. Si cambia el catálogo o el modelo, vuelva a revisar los candidatos afectados. La evaluación no modifica las recomendaciones normales ni las etiquetas piloto originales. En Docker, los directorios de evaluación y resultados se montan con escritura para conservar las notas en el host.
+
+`data/evaluation/queries.json` conserva las nueve consultas y etiquetas piloto propuestas por el asistente antes de la revisión. La evaluación final utiliza `data/evaluation/reviewed_queries.json`: una persona calificó manualmente 71 pares consulta-libro, reuniendo los cinco primeros candidatos de cada método, eliminando duplicados y ocultando el método de origen. Para reproducir la tabla final, con catálogo e índice preparados, ejecute:
 
 ```bash
-python -m ml.evaluate --cases data/evaluation/queries.json --output results/evaluation.csv
+python -m ml.evaluate --cases data/evaluation/reviewed_queries.json --output results/evaluation_reviewed.csv
 ```
 
 El script ejecuta **las mismas consultas, filtros y catálogo** contra BM25 y búsqueda semántica. Reporta medias de:
@@ -89,7 +102,9 @@ El script ejecuta **las mismas consultas, filtros y catálogo** contra BM25 y b�
 - **Cumplimiento:** proporción de resultados que cumplen filtros explícitos en consultas que los usan; si no hay resultados por filtros, vale 1 de manera vacía y debe interpretarse junto al número de resultados.
 - **Tiempo:** duración media de `search()` en milisegundos, medida tras cargar modelos e índices. Depende del hardware y no incluye HTTP ni arranque.
 
-La ejecución piloto sobre los 215 libros produjo `results/evaluation.csv`: BM25 nDCG@5 `0.8621` y Precision@5 `0.2667`; semántica nDCG@5 `0.8540` y Precision@5 `0.3333`. El cumplimiento de filtros fue `1.0` para ambos. Las nueve consultas y sus etiquetas proceden de la etapa anterior: **los libros añadidos aún no tienen juicios de relevancia completos**, por lo que las cifras son provisionales y pueden infravalorar resultados nuevos. Se necesita una nueva anotación humana del conjunto combinado antes de concluir qué método funciona mejor. La latencia se guarda en el CSV y debe medirse de nuevo en el hardware de la defensa. Estas métricas miden el ranking, no la calidad de las explicaciones del LLM.
+La evaluación revisada sobre los 215 libros y nueve consultas produjo `results/evaluation_reviewed.csv`: BM25 nDCG@5 `0.8456` y Precision@5 `0.4444`; semántica nDCG@5 `0.8998` y Precision@5 `0.4222`. El método semántico ordenó mejor los libros relevantes según la métrica principal; BM25 obtuvo un libro adicional con relevancia ≥ 2 entre las 45 posiciones evaluadas. El cumplimiento de filtros fue `1.0` para ambos. Las latencias medias de cada ejecución figuran en el CSV; dependen del hardware y no incluyen HTTP, LLM ni arranque. Estas cifras describen solo las nueve consultas y el catálogo actual; no miden la calidad de las explicaciones del LLM ni el modo Semántico + Jev. El archivo `results/evaluation.csv` contiene la comparación piloto anterior y no debe presentarse como resultado final.
+
+Los juicios con nota 0 permiten analizar errores concretos: «Frankenstein» apareció como candidato para una consulta sobre un imperio galáctico; «Orgullo y prejuicio» para una distopía que controla emociones; y «Cómo ganar amigos e influir sobre las personas» para un romance fingido. Comparten palabras o temas parciales, pero no cumplen la petición completa. Las causas propuestas son hipótesis basadas en las fichas, no explicaciones causales verificadas del modelo.
 
 ## Pruebas
 
@@ -112,4 +127,12 @@ En Linux, cambie `BOOKERY_CHROME_PATH` por la ruta de Chromium. La prueba valida
 
 ## Limitaciones y defensa
 
-El catálogo de demostración no es el inventario de Todo Libros y contiene 215 libros seleccionados. La cobertura creció, pero los resúmenes de metadatos de las fichas nuevas no describen la trama: consultas narrativas detalladas pueden fallar. Las consultas por Marian Rojas Estapé pueden devolver títulos relacionados por categorías editoriales amplias como «Psicología» o «Crecimiento personal», no una evaluación experta de equivalencia de contenido. El sistema puede omitir libros no registrados. El modelo de embeddings fue preentrenado para similitud de frases, no para este catálogo concreto; entradas largas pueden truncarse. BM25 y embeddings comparten campos, pero sus scores no son comparables directamente. La calidad solo puede concluirse tras la evaluación independiente. No hay memoria conversacional; el formulario procesa una consulta por vez. Para una exposición de cinco minutos, consulte [el guion de presentación](docs/presentation-outline.md) y [el esquema del informe](docs/report-outline.md).
+El catálogo de demostración no es el inventario de Todo Libros y contiene 215 libros seleccionados. La cobertura creció, pero los resúmenes de metadatos de las fichas nuevas no describen la trama: consultas narrativas detalladas pueden fallar. Las consultas por Marian Rojas Estapé pueden devolver títulos relacionados por categorías editoriales amplias como «Psicología» o «Crecimiento personal», no una evaluación experta de equivalencia de contenido. El sistema puede omitir libros no registrados. El modelo de embeddings fue preentrenado para similitud de frases, no para este catálogo concreto; entradas largas pueden truncarse. BM25 y embeddings comparten campos, pero sus scores no son comparables directamente. La evaluación humana abarca solo nueve consultas; algunas fichas tienen descripciones temáticas breves, lo que limita los juicios de relevancia. No hay memoria conversacional; el formulario procesa una consulta por vez. Para una exposición de cinco minutos, consulte [el guion de presentación](docs/presentation-outline.md) y [el esquema del informe](docs/report-outline.md).
+
+## Entregables finales
+
+- [Informe técnico PDF](output/pdf/informe-tecnico-bookery-ai.pdf), con tabla, capturas, pruebas, análisis de errores y referencias.
+- [Presentación PPTX de cinco diapositivas](output/presentation/bookery-ai-presentacion-final-v3.pptx), con notas para una exposición de cinco minutos.
+- [Calificaciones humanas](data/evaluation/reviewed_queries.json) y [resultados revisados](results/evaluation_reviewed.csv).
+
+Los scripts `tools/build_report.py` y `tools/build_presentation.mjs` generan los documentos desde el contenido del repositorio. Antes de la demostración, inicie el backend y el frontend con los comandos de instalación anteriores.

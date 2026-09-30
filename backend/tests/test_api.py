@@ -3,6 +3,7 @@ import httpx
 
 from backend.app.main import create_app
 from backend.app.llm import LLMExplainer
+from backend.app.jev import JevSelector
 from ml.dataset import referenced_book_ids
 from tests.test_core import RAW
 from ml.prepare_dataset import clean
@@ -171,3 +172,37 @@ def test_author_similarity_uses_catalog_topics_and_skips_llm():
         assert payload["explanation_mode"] == "reference"
         assert "Psicología" in payload["recommendations"][0]["reason"]
         assert "Marian Rojas Estapé" in payload["answer"]
+
+
+def test_jev_selects_only_a_retrieved_book_and_keeps_alternatives():
+    books = clean(RAW)
+
+    def reply(request):
+        payload = __import__("json").loads(request.content)
+        ids = [book["id"] for book in payload["state"]["candidatos"]]
+        assert set(payload["questions"]["libro_indicado"]["criteria"]) == set(ids) | {"ninguno"}
+        return httpx.Response(200, json={"answers": {"libro_indicado": {
+            "choice": "b", "confidence": 0.9,
+            "probabilities": {"a": 0.1, "b": 0.85, "ninguno": 0.05}}}})
+
+    jev = JevSelector("test-key", client=httpx.Client(transport=httpx.MockTransport(reply)))
+    with TestClient(create_app(books, FakeSemantic(books), jev=jev)) as client:
+        payload = client.post("/api/recommend/jev", json={"query": "Una historia sobre sociedad"}).json()
+        assert [book["id"] for book in payload["recommendations"]] == ["b", "a"]
+        assert payload["selection_mode"] == "jev"
+        assert payload["selection_confidence"] == 0.9
+
+
+def test_jev_invalid_choice_falls_back_to_semantic_order():
+    books = clean(RAW)
+
+    def reply(_request):
+        return httpx.Response(200, json={"answers": {"libro_indicado": {
+            "choice": "invented", "confidence": 1.0,
+            "probabilities": {"a": 0.1, "b": 0.8, "ninguno": 0.1}}}})
+
+    jev = JevSelector("test-key", client=httpx.Client(transport=httpx.MockTransport(reply)))
+    with TestClient(create_app(books, FakeSemantic(books), jev=jev)) as client:
+        payload = client.post("/api/recommend/jev", json={"query": "Una historia sobre sociedad"}).json()
+        assert [book["id"] for book in payload["recommendations"]] == ["a", "b"]
+        assert payload["selection_mode"] == "semantic"

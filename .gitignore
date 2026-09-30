@@ -5,6 +5,9 @@ frontend/node_modules/
 frontend/.nuxt/
 frontend/.output/
 .pnpm-store/
+tools/node_modules
+.DS_Store
+.codex-finalizer/
 data/raw/*
 data/processed/*
 !data/raw/.gitkeep
@@ -13,4 +16,5 @@ data/processed/*
 results/*
 !results/.gitkeep
 !results/evaluation.csv
+!results/evaluation_reviewed.csv
 .env

@@ -1,0 +1,341 @@
+[
+  {
+    "query": "Quiero leer algo parecido a Harry Potter, con magia, amistades y aventuras juveniles",
+    "language": "es",
+    "genre": "Fantasía",
+    "relevant_books": [
+      {
+        "book_id": "OL5720023W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL27482W",
+        "relevance": 2
+      },
+      {
+        "book_id": "OL492658W",
+        "relevance": 3
+      },
+      {
+        "book_id": "OL7924103W",
+        "relevance": 2
+      },
+      {
+        "book_id": "OL77826W",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL257943W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL45846W",
+        "relevance": 2
+      },
+      {
+        "book_id": "OL71037W",
+        "relevance": 3
+      },
+      {
+        "book_id": "OL24706481W",
+        "relevance": 2
+      }
+    ]
+  },
+  {
+    "query": "Busco ciencia ficción sobre un imperio galáctico que cae y un científico que intenta prever el futuro",
+    "language": "es",
+    "relevant_books": [
+      {
+        "book_id": "OL893414W",
+        "relevance": 2
+      },
+      {
+        "book_id": "OL450063W",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL46125W",
+        "relevance": 3
+      },
+      {
+        "book_id": "OL2163649W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL52267W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL21745884W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL109524W",
+        "relevance": 1
+      }
+    ]
+  },
+  {
+    "query": "Una novela policial con un asesinato misterioso en un tren detenido por la nieve",
+    "language": "es",
+    "relevant_books": [
+      {
+        "book_id": "OL17797857W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL471576W",
+        "relevance": 3
+      },
+      {
+        "book_id": "OL20646061W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL274574W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL503666W",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL471932W",
+        "relevance": 2
+      },
+      {
+        "book_id": "OL262438W",
+        "relevance": 2
+      }
+    ]
+  },
+  {
+    "query": "Quiero una saga familiar latinoamericana donde la política se mezcla con hechos sobrenaturales",
+    "language": "es",
+    "relevant_books": [
+      {
+        "book_id": "OL274574W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL617847W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL77826W",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL110971W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL1905255W",
+        "relevance": 3
+      },
+      {
+        "book_id": "OL1731119W",
+        "relevance": 2
+      },
+      {
+        "book_id": "OL1168007W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL891786W",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL80021W",
+        "relevance": 0
+      }
+    ]
+  },
+  {
+    "query": "Una comedia romántica sobre una relación fingida entre personas que trabajan en la universidad",
+    "language": "es",
+    "relevant_books": [
+      {
+        "book_id": "OL953162W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL1063267W",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL69612W",
+        "relevance": 0
+      },
+      {
+        "book_id": "MRE-EPTV",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL24178205W",
+        "relevance": 3
+      },
+      {
+        "book_id": "OL18203673W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL20090688W",
+        "relevance": 2
+      },
+      {
+        "book_id": "OL18020194W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL24706481W",
+        "relevance": 1
+      }
+    ]
+  },
+  {
+    "query": "Una distopía donde la sociedad controla las emociones y el comportamiento de todos",
+    "language": "es",
+    "relevant_books": [
+      {
+        "book_id": "OL19744000W",
+        "relevance": 0
+      },
+      {
+        "book_id": "MRE-CHQTPB",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL66554W",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL1168007W",
+        "relevance": 2
+      },
+      {
+        "book_id": "MRE-RMRTV",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL64365W",
+        "relevance": 3
+      }
+    ]
+  },
+  {
+    "query": "Una historia gótica de un científico que crea un ser y luego abandona su responsabilidad",
+    "language": "es",
+    "relevant_books": [
+      {
+        "book_id": "OL16215950W",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL27482W",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL7924103W",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL617847W",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL2577482W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL450063W",
+        "relevance": 3
+      },
+      {
+        "book_id": "OL46125W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL52267W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL64365W",
+        "relevance": 1
+      }
+    ]
+  },
+  {
+    "query": "Un joven encuentra un libro olvidado y descubre secretos de su autor en la Barcelona de posguerra",
+    "language": "es",
+    "relevant_books": [
+      {
+        "book_id": "OL5781992W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL3335245W",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL15401200W",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL17714701W",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL15400582W",
+        "relevance": 1
+      },
+      {
+        "book_id": "MRE-EPTV",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL82563W",
+        "relevance": 1
+      },
+      {
+        "book_id": "OL52267W",
+        "relevance": 0
+      },
+      {
+        "book_id": "OL278437W",
+        "relevance": 3
+      }
+    ]
+  },
+  {
+    "query": "Quiero libros parecidos a los de Marian Rojas Estapé, sobre gestión emocional y bienestar",
+    "language": "es",
+    "relevant_books": [
+      {
+        "book_id": "OL19744000W",
+        "relevance": 3
+      },
+      {
+        "book_id": "OL2764952W",
+        "relevance": 3
+      },
+      {
+        "book_id": "OL17930368W",
+        "relevance": 2
+      },
+      {
+        "book_id": "OL1878267W",
+        "relevance": 3
+      },
+      {
+        "book_id": "OL25436364W",
+        "relevance": 3
+      },
+      {
+        "book_id": "OL27203W",
+        "relevance": 2
+      }
+    ]
+  }
+]
