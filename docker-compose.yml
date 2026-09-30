@@ -7,6 +7,10 @@ services:
       - "8000:8000"
     volumes:
       - ./data:/app/data:ro
+    environment:
+      BOOKERY_LLM_BASE_URL: ${BOOKERY_LLM_BASE_URL:-https://api.openai.com/v1}
+      BOOKERY_LLM_MODEL: ${BOOKERY_LLM_MODEL:-}
+      BOOKERY_LLM_API_KEY: ${BOOKERY_LLM_API_KEY:-}
   frontend:
     build:
       context: ./frontend

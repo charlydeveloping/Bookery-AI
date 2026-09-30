@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field, field_validator
 from ml.bm25_retriever import BM25Retriever
 from ml.dataset import load_books
 from ml.semantic_retriever import SemanticRetriever
+from backend.app.llm import LLMExplainer
 
 
 class SearchRequest(BaseModel):
@@ -26,13 +27,14 @@ class SearchRequest(BaseModel):
         return value.strip()
 
 
-def create_app(books=None, semantic=None):
+def create_app(books=None, semantic=None, explainer=None):
     @asynccontextmanager
     async def lifespan(app):
         if not hasattr(app.state, "books"):
             app.state.books = load_books(os.getenv("BOOKERY_CATALOG", "data/processed/books.json"))
             app.state.bm25 = BM25Retriever(app.state.books)
             app.state.semantic = SemanticRetriever(app.state.books, os.getenv("BOOKERY_EMBEDDINGS", "data/processed/embeddings.npy"))
+            app.state.explainer = LLMExplainer.from_env()
         yield
 
     app = FastAPI(title="Bookery AI", lifespan=lifespan)
@@ -41,6 +43,7 @@ def create_app(books=None, semantic=None):
         app.state.books = books
         app.state.bm25 = BM25Retriever(books)
         app.state.semantic = semantic
+        app.state.explainer = explainer
 
     @app.get("/health")
     def health():
@@ -57,13 +60,20 @@ def create_app(books=None, semantic=None):
         if retriever is None:
             raise HTTPException(status_code=503, detail="Índice semántico no disponible")
         results = retriever.search(request.query, k=request.limit, language=request.language, genre=request.genre, author=request.author)
+        books = [book for book, _ in results]
+        explanations = (app.state.explainer.explain(request.query, books)
+                        if method == "semantic" and app.state.explainer and books else None)
         recommendations = []
         for book, score in results:
             recommendations.append({"id": book["id"], "title": book["title"], "author": book["author"],
                 "genres": book["genres"], "language": book["language"], "description": book["description"],
                 "score": round(float(score), 5), "source_url": book.get("source_url"),
-                "reason": f"Coincide con tu búsqueda según {'similitud semántica' if method == 'semantic' else 'términos del catálogo'}. Género: {', '.join(book['genres'][:2])}."})
+                "reason": (explanations or {}).get(book["id"]) or
+                          f"Coincide con tu búsqueda según {'similitud semántica' if method == 'semantic' else 'términos del catálogo'}. Género: {', '.join(book['genres'][:2])}."})
         return {"query": request.query, "method": method, "recommendations": recommendations,
+                "answer": (f"Encontré {len(recommendations)} libro(s) del catálogo que podrían interesarte."
+                           if recommendations else "No encontré libros del catálogo con esos criterios. Prueba con otra descripción o filtros."),
+                "explanation_mode": "llm" if explanations else "basic",
                 "response_time_ms": round((time.perf_counter() - start) * 1000, 2)}
 
     @app.post("/api/recommend")
