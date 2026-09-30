@@ -1,0 +1,1 @@
+{"name":"bookery-ai-frontend","private":true,"packageManager":"pnpm@11.10.0","scripts":{"dev":"nuxt dev --host 0.0.0.0","build":"nuxt build","test:e2e":"node scripts/e2e.mjs"},"dependencies":{"nuxt":"4.1.0","vue":"3.5.17"},"devDependencies":{"playwright-core":"1.55.0"}}

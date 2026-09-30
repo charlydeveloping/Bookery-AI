@@ -1,0 +1,9 @@
+[
+  {
+    "query": "Quiero una historia de sociedades controladas por tecnología",
+    "language": "en",
+    "relevant_books": [
+      {"book_id": "REPLACE_WITH_REAL_CATALOG_ID", "relevance": 3}
+    ]
+  }
+]
