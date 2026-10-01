@@ -8,6 +8,8 @@ Bookery AI usa el **mismo catálogo** para ambos métodos. El backend devuelve e
 
 `Open Library (ediciones en español) + anotaciones propias → books.json → BM25 / embeddings normalizados → FastAPI → LLM opcional → Nuxt 4`
 
+Consulte el [diagrama interactivo de arquitectura](docs/arquitectura-bookery-ai.html) o su [versión PNG](docs/arquitectura-bookery-ai.png).
+
 BM25 usa `k1=1.5`, `b=0.75` y tokenización Unicode simple. La búsqueda semántica usa [`sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2), revisión `e8f8c211226b894fcb81acc59f3b34ba3efd5f42`, un modelo **preentrenado** de 384 dimensiones. Se reutilizan sus pesos mediante `sentence-transformers==3.3.1`; aquí se desarrollaron la preparación de datos, el índice exacto NumPy, los filtros, la API y la evaluación. No se entrenó ni ajustó el modelo. Los vectores se normalizan y se ordenan por producto punto, equivalente al coseno. El artefacto guarda modelo, revisión, dimensión y huella del catálogo.
 
 ## Dataset

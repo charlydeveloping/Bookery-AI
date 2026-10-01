@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Arquitectura de Bookery AI",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1390,
+      850
+    ]
+  },
+  "components": [
+    {
+      "id": "usuario",
+      "type": "external",
+      "label": "Usuario",
+      "sublabel": "consulta y filtros",
+      "pos": [
+        50,
+        390
+      ],
+      "size": [
+        170,
+        78
+      ]
+    },
+    {
+      "id": "nuxt",
+      "type": "frontend",
+      "label": "Nuxt 4 + Vue",
+      "sublabel": "interfaz · :3000",
+      "pos": [
+        266,
+        390
+      ],
+      "size": [
+        200,
+        78
+      ]
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "FastAPI",
+      "sublabel": "rutas y respuesta · :8000",
+      "pos": [
+        513,
+        390
+      ],
+      "size": [
+        205,
+        78
+      ]
+    },
+    {
+      "id": "bm25",
+      "type": "backend",
+      "label": "BM25",
+      "sublabel": "coincidencia léxica",
+      "pos": [
+        788,
+        280
+      ],
+      "size": [
+        210,
+        78
+      ]
+    },
+    {
+      "id": "semantico",
+      "type": "backend",
+      "label": "Búsqueda semántica",
+      "sublabel": "MiniLM + coseno",
+      "pos": [
+        788,
+        500
+      ],
+      "size": [
+        210,
+        78
+      ]
+    },
+    {
+      "id": "catalogo",
+      "type": "database",
+      "label": "Catálogo",
+      "sublabel": "books.json · 215 libros",
+      "pos": [
+        1125,
+        280
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "vectores",
+      "type": "database",
+      "label": "Índice vectorial",
+      "sublabel": "embeddings.npy · NumPy",
+      "pos": [
+        1125,
+        500
+      ],
+      "size": [
+        220,
+        78
+      ]
+    },
+    {
+      "id": "datos",
+      "type": "external",
+      "label": "Datos revisados",
+      "sublabel": "Open Library + anotaciones",
+      "pos": [
+        788,
+        100
+      ],
+      "size": [
+        205,
+        78
+      ]
+    },
+    {
+      "id": "preparacion",
+      "type": "backend",
+      "label": "Preparación ML",
+      "sublabel": "catálogo + embeddings",
+      "pos": [
+        1125,
+        100
+      ],
+      "size": [
+        210,
+        78
+      ]
+    },
+    {
+      "id": "opcional",
+      "type": "external",
+      "label": "Servicios opcionales",
+      "sublabel": "Jev / LLM explicador",
+      "pos": [
+        513,
+        650
+      ],
+      "size": [
+        205,
+        78
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "usuario",
+      "to": "nuxt",
+      "label": "consulta",
+      "variant": "emphasis"
+    },
+    {
+      "from": "nuxt",
+      "to": "api",
+      "label": "HTTP /api/*",
+      "variant": "emphasis",
+      "labelAt": [
+        490,
+        482
+      ]
+    },
+    {
+      "from": "api",
+      "to": "bm25",
+      "label": "modo BM25"
+    },
+    {
+      "from": "api",
+      "to": "semantico",
+      "label": "modo semántico"
+    },
+    {
+      "from": "bm25",
+      "to": "catalogo",
+      "label": "fichas"
+    },
+    {
+      "from": "semantico",
+      "to": "vectores",
+      "label": "similitud"
+    },
+    {
+      "from": "datos",
+      "to": "preparacion",
+      "label": "selección revisada"
+    },
+    {
+      "from": "preparacion",
+      "to": "catalogo",
+      "label": "genera books.json",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "from": "api",
+      "to": "opcional",
+      "label": "selección / motivos",
+      "variant": "dashed",
+      "labelDy": 24
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Flujo de consulta",
+      "items": [
+        "Nuxt envía la consulta a FastAPI",
+        "La API selecciona BM25 o recuperación semántica"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Datos locales",
+      "items": [
+        "El catálogo y los vectores se preparan antes del arranque",
+        "No hay base de datos de inventario"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Opcional",
+      "items": [
+        "Jev puede elegir entre libros recuperados",
+        "Un LLM puede redactar los motivos"
+      ]
+    }
+  ]
+}
