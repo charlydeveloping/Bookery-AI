@@ -24,7 +24,9 @@ Los metadatos de Open Library pueden tener derechos preexistentes; consulte su [
 
 ## Instalación y ejecución
 
-Requisitos: Python 3.11 o 3.12, Node.js 22 y pnpm 11. En macOS, compruebe la versión con `python3.12 --version`; el Python 3.9 incluido en algunos equipos no instala `numpy==2.2.1`. Desde la raíz:
+### Primera vez en macOS o Linux
+
+Necesita Python 3.11 o 3.12, Node.js 22 y pnpm 11. No hace falta configurar una clave de LLM para usar la aplicación. Abra una terminal en la carpeta del proyecto (la que contiene `README.md`) y ejecute:
 
 ```bash
 python3.12 -m venv .venv
@@ -32,10 +34,19 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 python -m ml.build_curated_catalog
 python -m ml.semantic_retriever
+```
+
+Si usa Python 3.11, reemplace `python3.12` por `python3.11`. El comando `ml.semantic_retriever` descarga el modelo preentrenado la primera vez y crea `data/processed/embeddings.npy`; requiere internet. El catálogo y las anotaciones revisadas ya vienen en el repositorio, así que no hace falta descargar datos de Open Library.
+
+Deje esa terminal abierta: allí se ejecutará el backend. Inícielo con:
+
+```bash
 uvicorn backend.app.main:app --reload
 ```
 
-La primera generación de embeddings descarga el modelo preentrenado. Cada vez que cambie una ficha del catálogo, regenere el JSON y los embeddings antes de iniciar el backend. El backend sirve `http://localhost:8000/health`. En otra terminal:
+El backend queda en `http://localhost:8000`. Compruebe que responde abriendo `http://localhost:8000/health`; debe mostrar `{"status":"ok","catalog_size":215}`.
+
+Abra **una segunda terminal** en la carpeta del proyecto e inicie la interfaz:
 
 ```bash
 cd frontend
@@ -43,11 +54,35 @@ pnpm install
 pnpm dev
 ```
 
-Abra `http://localhost:3000`. Para una prueba rápida de la API:
+Abra `http://localhost:3000` en el navegador. Ya puede hacer consultas y usar el botón **Evaluar**. No cierre las terminales mientras use la aplicación.
+
+### Arranques siguientes
+
+Después de completar la instalación inicial, no repita la instalación de paquetes ni la generación de embeddings. Abra dos terminales en la carpeta del proyecto. En la primera:
+
+```bash
+source .venv/bin/activate
+uvicorn backend.app.main:app --reload
+```
+
+En la segunda:
+
+```bash
+cd frontend
+pnpm dev
+```
+
+Si cambia el catálogo, regenere primero el catálogo y los embeddings con `python -m ml.build_curated_catalog` y `python -m ml.semantic_retriever`, y luego reinicie el backend.
+
+### Comprobar la API
+
+Con el backend activo, puede probarlo desde otra terminal:
 
 ```bash
 curl -X POST http://localhost:8000/api/recommend -H 'Content-Type: application/json' -d '{"query":"Quiero una novela sobre tecnología y control social","limit":5}'
 ```
+
+Para detener cada servicio, vuelva a su terminal y presione `Ctrl+C`.
 
 Para explorar el catálogo en la interfaz, pruebe «Quiero leer algo parecido a Harry Potter», «Busco un asesinato misterioso en un tren» y «Prefiero una historia familiar latinoamericana con elementos sobrenaturales». La primera consulta busca alternativas y excluye el libro citado. La tarjeta enlaza a la edición española registrada en Open Library.
 
